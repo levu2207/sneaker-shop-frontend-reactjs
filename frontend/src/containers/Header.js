@@ -1,6 +1,7 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../Assets/image/logo.png";
+import Login from "../pages/Login/Login";
 import "./header.css";
 
 const Header = () => {
@@ -11,7 +12,9 @@ const Header = () => {
       <div className="container position-relative p-0">
         <div className="h-100 d-flex justify-content-between align-items-center">
           <div className="logo">
-            <img src={logo} alt="logo" />
+            <Link to="/home">
+              <img className="logo-home" src={logo} alt="logo" />
+            </Link>
           </div>
 
           <div className="menu">
@@ -63,7 +66,7 @@ const Header = () => {
             </div>
 
             <div className="user-login mx-3">
-              <i className="bi bi-person-circle" title="Đăng nhập/Đăng ký"></i>
+              <Login />
             </div>
           </div>
         </div>

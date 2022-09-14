@@ -1,0 +1,8 @@
+.mode-register,
+.mode-login {
+  color: var(--secondary-color);
+}
+
+.mode-tranfer {
+  cursor: pointer;
+}
