@@ -1,0 +1,10 @@
+.footer {
+  background-image: url(../Assets/image/footer.jpg);
+  min-height: 400px;
+  background-position: bottom;
+  color: #d3d3d3;
+  font-weight: 500;
+}
+.logo-footer {
+  height: 26px;
+}
