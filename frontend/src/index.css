@@ -13,7 +13,6 @@ body {
 }
 img {
   display: block;
-  max-width: 100%;
 }
 a {
   color: inherit;
@@ -42,6 +41,8 @@ h6 {
 :root {
   --primary-color: #4b4b4b;
   --secondary-color: #f0482d;
+  --black-color: black;
+  --white-color: white;
 }
 
 body {

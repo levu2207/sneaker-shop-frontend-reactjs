@@ -1,0 +1,80 @@
+/* Support */
+.support-icon {
+  font-size: 30px;
+  color: black;
+}
+
+.support-title {
+  font-size: 17px;
+  font-weight: 500;
+  color: #1c1c1c;
+}
+
+.support-desc {
+  font-size: 14px;
+  color: #6d6d6d;
+}
+
+/* Category */
+.category {
+  height: 300px;
+  font-family: "Roboto", sans-serif;
+}
+
+.category-item {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.category-item:hover .category-link {
+  color: var(--secondary-color);
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.category-women {
+  background-image: url(../../Assets/image/category/women.jpg);
+}
+
+.category-men {
+  background-image: url(../../Assets/image/category/men.jpg);
+}
+
+.category-kid {
+  background-image: url(../../Assets/image/category/kid.jpg);
+}
+
+.category-content {
+}
+
+.category-title {
+  font-size: 30px;
+  color: white;
+  font-weight: 800;
+}
+
+.category-desc {
+  font-size: 17px;
+  color: white;
+  font-weight: 500;
+}
+
+.category-link {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+/* Product home */
+
+.emty {
+  display: block;
+  width: 100px;
+  height: 1px;
+  background-color: rgb(151, 151, 151);
+}

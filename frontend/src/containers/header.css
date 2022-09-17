@@ -1,13 +1,12 @@
 .header {
   height: 100px;
-  /* position: fixed; */
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 3;
   background: #fff;
-  /* border-bottom: 1px solid var(--secondary-color);
-  border-top: 1px solid var(--secondary-color); */
-  box-shadow: 8px 1px 12px var(--secondary-color);
+  box-shadow: 0 0 10px var(--primary-color);
 }
 
 .logo-home {
