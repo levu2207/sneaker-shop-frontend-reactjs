@@ -1,3 +1,9 @@
 .App {
-  background: linear-gradient(to bottom, #fff 0%, lightgray 88%);
+  background: linear-gradient(to bottom right, #aacaef 0%, #fde7f9 100%);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 60px !important;
+  height: 60px !important;
 }

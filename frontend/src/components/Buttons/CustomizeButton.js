@@ -1,7 +1,7 @@
 import React from "react";
 import "./button.css";
 
-const PrimaryButton = (props) => {
+const CustomizeButton = (props) => {
   const { className, type, onClick } = props;
 
   return (
@@ -11,4 +11,4 @@ const PrimaryButton = (props) => {
   );
 };
 
-export default PrimaryButton;
+export default CustomizeButton;

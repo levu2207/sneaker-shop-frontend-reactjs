@@ -76,5 +76,23 @@
   display: block;
   width: 100px;
   height: 1px;
-  background-color: rgb(151, 151, 151);
+  background-color: var(--black-color);
+}
+
+/* News */
+.home-news-title {
+  font-size: 20px;
+  color: var(--secondary-color);
+}
+
+.home-news-img {
+  width: 100%;
+}
+
+.home-news-img img {
+  width: 100%;
+}
+
+.home-news-title {
+  font-weight: 500;
 }

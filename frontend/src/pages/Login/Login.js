@@ -58,7 +58,7 @@ const Login = () => {
                 <div className="d-flex justify-content-center">
                   <CustomizeButton
                     type="button"
-                    className="secondary-btn me-3"
+                    className="secondary-btn me-3 rounded-btn-1"
                     onClick={handleClose}
                   >
                     Cancel

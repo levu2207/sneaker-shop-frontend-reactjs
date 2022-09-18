@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../Assets/image/logo.png";
 import Login from "../pages/Login/Login";
 import "./header.css";
+import FavoriteList from "./../components/FavoriteList/FavoriteList";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ const Header = () => {
             </Link>
           </div>
 
+          {/* Menu */}
           <div className="menu">
             <ul className="d-flex">
               <li>
@@ -26,7 +28,7 @@ const Header = () => {
               </li>
 
               <li>
-                <NavLink className="menu-item" to="/product">
+                <NavLink className="menu-item" to="/products">
                   Sneaker
                 </NavLink>
               </li>
@@ -52,20 +54,25 @@ const Header = () => {
           </div>
 
           <div className="user d-flex align-items-center">
+            {/* Cart */}
             <div onClick={() => navigate("/cart")} className="user-cart">
               <i className="cart bi bi-bag-check-fill" title="Giỏ hàng của bạn"></i>
               <span className="cart-amount">0</span>
             </div>
 
-            <div className="user-search mx-3" title="Tìm kiếm sản phẩm">
+            {/* Search */}
+            <div className="fs-3 user-search mx-3" title="Tìm kiếm sản phẩm">
               <i className="bi bi-search"></i>
             </div>
 
-            <div className="user-wishlist mx-3">
-              <i className="bi bi-heart" title="Danh sách yêu thích"></i>
-            </div>
+            {/* Favorite */}
 
-            <div className="user-login mx-3">
+            <FavoriteList>
+              <i className="bi bi-heart" title="Danh sách yêu thích"></i>
+            </FavoriteList>
+
+            {/* Login */}
+            <div className="fs-3 user-login mx-3">
               <Login />
             </div>
           </div>

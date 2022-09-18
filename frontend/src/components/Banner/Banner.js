@@ -29,7 +29,7 @@ const Banner = () => {
                       </p>
                     </div>
                     <div>
-                      <CustomizeButton className="primary-btn link-btn m-0 d-flex justify-content-center align-items-center">
+                      <CustomizeButton className="primary-btn rounded-btn-3 link-btn m-0 d-flex justify-content-center align-items-center">
                         Mua ngay!
                       </CustomizeButton>
                     </div>
@@ -55,7 +55,7 @@ const Banner = () => {
                       </p>
                     </div>
                     <div>
-                      <CustomizeButton className="primary-btn link-btn m-0 d-flex justify-content-center align-items-center">
+                      <CustomizeButton className="primary-btn rounded-btn-3 link-btn m-0 d-flex justify-content-center align-items-center">
                         Mua ngay!
                       </CustomizeButton>
                     </div>
@@ -81,7 +81,7 @@ const Banner = () => {
                       </p>
                     </div>
                     <div>
-                      <CustomizeButton className="primary-btn link-btn m-0 d-flex justify-content-center align-items-center">
+                      <CustomizeButton className="primary-btn rounded-btn-3 link-btn m-0 d-flex justify-content-center align-items-center">
                         Mua ngay!
                       </CustomizeButton>
                     </div>

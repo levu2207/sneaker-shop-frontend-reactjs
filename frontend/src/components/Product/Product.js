@@ -1,13 +1,20 @@
 import React from "react";
-import "./product.css";
+import { useNavigate } from "react-router-dom";
 import products from "../../Api/fakeProduct";
-import CustomizeButton from "../../components/Buttons/CustomizeButton";
 import nikeImage from "../../Assets/image/products/id-1/air-max-4.png";
+import CustomizeButton from "../../components/Buttons/CustomizeButton";
 import CardModal from "../CardModal/CardModal";
+import "./product.css";
 
 const Product = (props) => {
   // const { brand, name, price, sale } = props;
   const salePercent = Number(products[0].sale.slice(0, 2));
+  const navigate = useNavigate();
+
+  const handleProductDetail = (e) => {
+    console.log(e.target);
+    navigate("/products/");
+  };
 
   return (
     <div className="product-main col-lg-3 col-md-6 col-sm-6 col-9 mt-2 py-2">
@@ -41,7 +48,12 @@ const Product = (props) => {
               </div>
 
               <div className="product-buy flex-grow-1 ms-3">
-                <CustomizeButton className="w-100 third-btn big">Mua</CustomizeButton>
+                <CustomizeButton
+                  onClick={(e) => handleProductDetail(e)}
+                  className="w-100 primary-btn big rounded-btn-1"
+                >
+                  Mua
+                </CustomizeButton>
               </div>
             </div>
           </div>
