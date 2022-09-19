@@ -1,6 +1,6 @@
-CREATE TABLE User_role (
+CREATE TABLE Permission (
   id int PRIMARY KEY AUTO_INCREMENT,
-  name varchar(20)
+  permission varchar(20)
 );
 
 CREATE TABLE Users (
@@ -10,54 +10,30 @@ CREATE TABLE Users (
   phone_number varchar(20),
   address varchar(200),
   password varchar(32),
-  role_id int,
+  permission_id int,
   created_at datetime,
   updated_at datetime,
-  deleted int
-);
-
-CREATE TABLE Tokens (
-  user_id int,
-  token varchar(32),
-  created_at datetime,
-  PRIMARY KEY (user_id, token)
 );
 
 CREATE TABLE Category (
   id int PRIMARY KEY AUTO_INCREMENT,
-  name varchar(100)
+  category varchar(100)
 );
 
 CREATE TABLE Products (
   id int PRIMARY KEY AUTO_INCREMENT,
   category_id int,
-  title varchar(250),
+  product_name varchar(250),
   price int,
-  discount int,
-  thumbnail varchar(500),
+  sale int,
+  size int,
+  image1 varchar(500),
+  image2 varchar(500),
+  image3 varchar(500),
+  image4 varchar(500),
   description longtext,
   created_at datetime,
   updated_at datetime,
-  deleted int
-);
-
-CREATE TABLE Gallery (
-  id int PRIMARY KEY AUTO_INCREMENT,
-  product_id int,
-  thumbnail varchar(500)
-);
-
-CREATE TABLE FeedBack (
-  id int PRIMARY KEY AUTO_INCREMENT,
-  firstname varchar(30),
-  lastname varchar(30),
-  email varchar(250),
-  phone_number varchar(20),
-  subject_name varchar(350),
-  note varchar(1000),
-  status int DEFAULT 0,
-  created_at datetime,
-  updated_at datetime
 );
 
 CREATE TABLE Orders (
@@ -82,16 +58,22 @@ CREATE TABLE Order_Details (
   total_money int
 );
 
-ALTER TABLE Users ADD FOREIGN KEY (role_id) REFERENCES User_role (id);
+CREATE TABLE Favorite (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  user_id int,
+  product_id int,
+);
+
+ALTER TABLE Users ADD FOREIGN KEY (permission_id) REFERENCES Permission (id);
 
 ALTER TABLE Products ADD FOREIGN KEY (category_id) REFERENCES Category (id);
 
 ALTER TABLE Order_Details ADD FOREIGN KEY (product_id) REFERENCES Products (id);
 
-ALTER TABLE Gallery ADD FOREIGN KEY (product_id) REFERENCES Products (id);
-
 ALTER TABLE Order_Details ADD FOREIGN KEY (order_id) REFERENCES Orders (id);
 
 ALTER TABLE Orders ADD FOREIGN KEY (user_id) REFERENCES Users (id);
 
-ALTER TABLE Tokens ADD FOREIGN KEY (user_id) REFERENCES Users (id);
+ALTER TABLE Favorite ADD FOREIGN KEY (user_id) REFERENCES Users (id);
+
+ALTER TABLE Favorite ADD FOREIGN KEY (product_id) REFERENCES Products (id);
