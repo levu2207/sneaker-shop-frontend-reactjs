@@ -2,24 +2,26 @@ import React from "react";
 import "./products.css";
 import Title from "../../components/Title/Titile";
 import Hero from "../../components/Hero/Hero";
-import heroSneaker from "../../Assets/image/hero-product.jpg"
+import heroSneaker from "../../Assets/image/hero-product.jpg";
 
 const Products = () => {
   return (
     <>
-      <Hero title = "Sneaker" subTitle = "Những sản phẩm mới nhất trong cửa hàng" heroImg ={heroSneaker} />
+      <Hero
+        title="Sneaker"
+        subTitle="Những sản phẩm mới nhất trong cửa hàng"
+        heroImg={heroSneaker}
+      />
 
       <div className="container">
         <div className="row">
-          <Title page = "Sneaker"/>
+          <Title page="Sneaker" />
           <div className="list-sneaker">
             <div className="container">
               <div className="row">
                 <div className="sub-shop-header ">
                   <div className="sort d-flex justify-content-center align-items-center">
-                    <p className="text-sort me-4 m-0">
-                      Hiển thị 0 - 15 trong 30 sản phẩm
-                    </p>
+                    <p className="text-sort me-4 m-0">Hiển thị 0 - 15 trong 30 sản phẩm</p>
                     <select>
                       <option value>Thứ tự mặc định</option>
                       <option value>Thứ tự theo mức độ phổ biến</option>
@@ -36,39 +38,35 @@ const Products = () => {
 
           <div className="row mt-3">
             <div className="col-lg-3 item-list">
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-12">
-                    <div className="list-product">
-                      <div className="row">
-                        <div className="col-lg-12">
-                          <div className="heading-list d-flex justify-content-center align-items-center">
-                            <div className="list-style w-100">
-                              <p className="text-list m-0 text-start">
-                                DANH MỤC SẢN PHẨM
-                              </p>
-                              <div className="empty-list mt-2" />
-                            </div>
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="list-product">
+                    <div className="row">
+                      <div className="col-lg-12">
+                        <div className="heading-list d-flex justify-content-center align-items-center">
+                          <div className="list-style w-100">
+                            <p className="text-list m-0 text-start">DANH MỤC SẢN PHẨM</p>
+                            <div className="empty-list mt-2" />
                           </div>
                         </div>
-                        <div className="col-lg-12">
-                          <div className="list-pr border p-3 pt-4 d-flex justify-content-between align-items-start flex-column">
-                            <a className="list-pr-item" href="/">
-                              Giày dành cho nam
-                            </a>
-                            <a className="list-pr-item" href="/">
-                              Giày dành cho nữ
-                            </a>
-                            <a className="list-pr-item" href="/">
-                              Giày dành cho trẻ em
-                            </a>
-                            <a className="list-pr-item" href="/">
-                              Giày chạy bộ
-                            </a>
-                            <a className="list-pr-item" href="/">
-                              Giày bóng rổ
-                            </a>
-                          </div>
+                      </div>
+                      <div className="col-lg-12">
+                        <div className="list-pr border p-3 pt-4 d-flex justify-content-between align-items-start flex-column">
+                          <a className="list-pr-item" href="/">
+                            Giày dành cho nam
+                          </a>
+                          <a className="list-pr-item" href="/">
+                            Giày dành cho nữ
+                          </a>
+                          <a className="list-pr-item" href="/">
+                            Giày dành cho trẻ em
+                          </a>
+                          <a className="list-pr-item" href="/">
+                            Giày chạy bộ
+                          </a>
+                          <a className="list-pr-item" href="/">
+                            Giày bóng rổ
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -82,9 +80,7 @@ const Products = () => {
                     <div className="col-lg-12">
                       <div className="heading-list d-flex justify-content-center align-items-center">
                         <div className="list-style w-100">
-                          <p className="text-list m-0 text-start">
-                            THƯƠNG HIỆU
-                          </p>
+                          <p className="text-list m-0 text-start">THƯƠNG HIỆU</p>
                           <div className="empty-list mt-2" />
                         </div>
                       </div>
@@ -224,9 +220,7 @@ const Products = () => {
                               <div className="col-lg-12">
                                 <div className="heading-list d-flex justify-content-center align-items-center">
                                   <div className="list-style w-100">
-                                    <p className="text-list m-0 text-start">
-                                      SẢN PHẨM BÁN CHẠY
-                                    </p>
+                                    <p className="text-list m-0 text-start">SẢN PHẨM BÁN CHẠY</p>
                                     <div className="empty-list mt-2" />
                                   </div>
                                 </div>
@@ -235,10 +229,7 @@ const Products = () => {
                                 <div className="list-most border">
                                   <div className="row">
                                     <div className="col-lg-12 item-most">
-                                      <a
-                                        href="/"
-                                        className="list-most d-block p-3"
-                                      >
+                                      <a href="/" className="list-most d-block p-3">
                                         <div className="row hight">
                                           <div className="col-lg-5">
                                             <div className="img-most">
@@ -251,12 +242,8 @@ const Products = () => {
                                           </div>
                                           <div className="col-lg-7 p-0">
                                             <div className="header-most d-flex justify-content-between align-items-start flex-column">
-                                              <p className="most-name mb-2">
-                                                OG CHICAGO PE
-                                              </p>
-                                              <p className="price-most m-0">
-                                                2.900.000đ
-                                              </p>
+                                              <p className="most-name mb-2">OG CHICAGO PE</p>
+                                              <p className="price-most m-0">2.900.000đ</p>
                                               <p className="rating m-0">
                                                 <i className="bi bi-star-fill" />
                                                 <i className="bi bi-star-fill" />
@@ -268,10 +255,7 @@ const Products = () => {
                                           </div>
                                         </div>
                                       </a>
-                                      <a
-                                        href="/"
-                                        className="list-most d-block p-3"
-                                      >
+                                      <a href="/" className="list-most d-block p-3">
                                         <div className="row hight">
                                           <div className="col-lg-5">
                                             <div className="img-most">
@@ -284,12 +268,8 @@ const Products = () => {
                                           </div>
                                           <div className="col-lg-7 p-0">
                                             <div className="header-most d-flex justify-content-between align-items-start flex-column">
-                                              <p className="most-name mb-2">
-                                                AIR MAX SEERSUCKER
-                                              </p>
-                                              <p className="price-most m-0">
-                                                2.300.000đ
-                                              </p>
+                                              <p className="most-name mb-2">AIR MAX SEERSUCKER</p>
+                                              <p className="price-most m-0">2.300.000đ</p>
                                               <p className="rating m-0">
                                                 <i className="bi bi-star-fill" />
                                                 <i className="bi bi-star-fill" />
@@ -301,10 +281,7 @@ const Products = () => {
                                           </div>
                                         </div>
                                       </a>
-                                      <a
-                                        href="/"
-                                        className="list-most d-block p-3"
-                                      >
+                                      <a href="/" className="list-most d-block p-3">
                                         <div className="row hight">
                                           <div className="col-lg-5">
                                             <div className="img-most">
@@ -317,12 +294,8 @@ const Products = () => {
                                           </div>
                                           <div className="col-lg-7 p-0">
                                             <div className="header-most d-flex justify-content-between align-items-start flex-column">
-                                              <p className="most-name mb-2">
-                                                FORUM
-                                              </p>
-                                              <p className="price-most m-0">
-                                                1.700.000đ
-                                              </p>
+                                              <p className="most-name mb-2">FORUM</p>
+                                              <p className="price-most m-0">1.700.000đ</p>
                                               <p className="rating m-0">
                                                 <i className="bi bi-star-fill" />
                                                 <i className="bi bi-star-fill" />
@@ -336,12 +309,8 @@ const Products = () => {
                                       </a>
                                     </div>
                                     <div className="col-lg-12 mt-3 pb-3">
-                                      <a
-                                        className="text-center d-block see-more"
-                                        href="/"
-                                      >
-                                        Xem thêm{" "}
-                                        <i className="bi bi-caret-down-fill" />
+                                      <a className="text-center d-block see-more" href="/">
+                                        Xem thêm <i className="bi bi-caret-down-fill" />
                                       </a>
                                     </div>
                                   </div>
@@ -364,8 +333,7 @@ const Products = () => {
                     <div
                       className="product"
                       style={{
-                        animation:
-                          "0.5s ease 0.1s 1 normal forwards running product",
+                        animation: "0.5s ease 0.1s 1 normal forwards running product",
                       }}
                     >
                       <img
@@ -404,8 +372,7 @@ const Products = () => {
                     <div
                       className="product"
                       style={{
-                        animation:
-                          "0.5s ease 0.1s 1 normal forwards running product",
+                        animation: "0.5s ease 0.1s 1 normal forwards running product",
                       }}
                     >
                       <img
@@ -428,9 +395,7 @@ const Products = () => {
                             </div>
                             <div className="price d-flex justify-content-between align-items-center ps-3 pe-3 ">
                               <div className=" name-sneaker d-flex justify-content-center align-items-start flex-column w-100 h-100 ">
-                                <p className="text-name m-0">
-                                  ULTRABOOST SOLAR 19
-                                </p>
+                                <p className="text-name m-0">ULTRABOOST SOLAR 19</p>
                                 <p className="text-price m-0">
                                   1.402.500
                                   <span className="old-price">1.650.000đ</span>
@@ -446,8 +411,7 @@ const Products = () => {
                     <div
                       className="product"
                       style={{
-                        animation:
-                          "0.5s ease 0.1s 1 normal forwards running product",
+                        animation: "0.5s ease 0.1s 1 normal forwards running product",
                       }}
                     >
                       <img
@@ -470,9 +434,7 @@ const Products = () => {
                             </div>
                             <div className="price d-flex justify-content-between align-items-center ps-3 pe-3 ">
                               <div className=" name-sneaker d-flex justify-content-center align-items-start flex-column w-100 h-100 ">
-                                <p className="text-name m-0">
-                                  FACTORY OLD SKOOL
-                                </p>
+                                <p className="text-name m-0">FACTORY OLD SKOOL</p>
                                 <p className="text-price m-0">
                                   1.400.000
                                   <span className="old-price">1.750.000đ</span>
@@ -488,8 +450,7 @@ const Products = () => {
                     <div
                       className="product"
                       style={{
-                        animation:
-                          "0.5s ease 0.1s 1 normal forwards running product",
+                        animation: "0.5s ease 0.1s 1 normal forwards running product",
                       }}
                     >
                       <img
@@ -528,8 +489,7 @@ const Products = () => {
                     <div
                       className="product"
                       style={{
-                        animation:
-                          "0.5s ease 0.1s 1 normal forwards running product",
+                        animation: "0.5s ease 0.1s 1 normal forwards running product",
                       }}
                     >
                       <img
@@ -568,8 +528,7 @@ const Products = () => {
                     <div
                       className="product"
                       style={{
-                        animation:
-                          "0.5s ease 0.1s 1 normal forwards running product",
+                        animation: "0.5s ease 0.1s 1 normal forwards running product",
                       }}
                     >
                       <img

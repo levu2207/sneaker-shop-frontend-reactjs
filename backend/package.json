@@ -4,7 +4,7 @@
   "description": "sneacker shop",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --inspect index.js"
+    "start": "nodemon --inspect server.js"
   },
   "author": "Le Vu",
   "license": "ISC",

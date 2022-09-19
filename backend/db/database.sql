@@ -46,7 +46,7 @@ CREATE TABLE Orders (
   note varchar(1000),
   order_date datetime,
   status int,
-  total_money int
+  total_price int
 );
 
 CREATE TABLE Order_Details (
@@ -55,7 +55,7 @@ CREATE TABLE Order_Details (
   product_id int,
   price int,
   num int,
-  total_money int
+  total_price int
 );
 
 CREATE TABLE Favorite (
