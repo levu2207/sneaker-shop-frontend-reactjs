@@ -1,0 +1,17 @@
+.text-brand-about {
+    font-size: 35px;
+    line-height: 43px;
+    color: #1c1c1c;
+    font-weight: 700;
+}
+
+.text-brand-about span {
+    color: rgb(243,68,24);
+}
+
+.text-content-about {
+    font-size: 16px;
+    line-height: 22px;
+    color: #4f555a;
+    word-spacing: 5px;
+}

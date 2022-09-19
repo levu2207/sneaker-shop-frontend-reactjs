@@ -1,0 +1,135 @@
+
+
+.link-select {
+    height: 100%;
+    display: flex;
+    justify-self: start;
+    align-items: center;
+    margin: 16px;
+}
+
+
+
+.sub-shop-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.text-sort {
+    font-size: 18px;
+    color: #1c1c1c;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.sort select {
+    height: 40px;
+    width: 250px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+    outline: none;
+    border: 1px solid #9b9b9b;
+    padding-left: 10px;
+}
+
+.list-sneaker {
+    margin-top: 20px;
+}
+
+.heading-list {
+    height: 50px;
+}
+
+.list-style {
+    height: 100%;
+}
+
+.text-list {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 25px;
+    color: #353535;
+}
+
+.empty-list {
+    width: 50px;
+    height: 5px;
+    background-color: rgba(0,0,0,.1);
+    border-radius: 5px;
+}
+
+.list-pr {
+    width: 100%;
+}
+
+.list-pr-item {
+    font-size: 14px;
+    line-height: 25px;
+    color: #666;
+    font-weight: 500;
+}
+
+.list-pr-item:hover {
+    color: var(--secondary-color);
+}
+
+.item-size {
+    height: 40px;
+    width: 40px;
+    border: 1px solid rgb(179,179,179);
+    background-color: rgb(219,219,219);
+    font-family: "Roboto",sans-serif;
+    color: #000;
+    line-height: 22px;
+    font-size: 14px;
+}
+
+.item-size:hover {
+    color: #fff;
+    background-color:var(--secondary-color);
+    cursor: pointer;
+}
+
+
+.product {
+    border: 2px solid #fff;
+}
+
+.content-cart {
+    background-color: #f0f0f0;
+}
+
+.brand-sneaker {
+    font-size: 15px;
+    color: #000;
+    font-weight: 500;
+    line-height: 25px;
+}
+
+.text-name {
+    font-size: 14px;
+    color: #5b5b5b;
+    line-height: 23px;
+    font-weight: 500;
+}
+
+.text-price {
+    color: #fb0000;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+.old-price {
+    text-decoration: line-through!important;
+    color: #747474;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 6px;
+}
+
+.bi-star-fill {
+    font-size: 14px;
+    color: #ff972b;
+}

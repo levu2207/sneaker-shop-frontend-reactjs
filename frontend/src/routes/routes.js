@@ -5,12 +5,14 @@ import Home from "./../pages/Home/Home";
 import Login from "./../pages/Login/Login";
 import News from "./../pages/News/News";
 import NotFound from "./../pages/NotFound/NotFound";
-import Product from "./../pages/Product/Product";
+import Products from "./../pages/Products/Products";
+import ProductDetail from "./../pages/ProductDetail/ProductDetail";
 
 const routes = [
   { path: "", component: <Home /> },
   { path: "/home", component: <Home /> },
-  { path: "/product", component: <Product /> },
+  { path: "/products", component: <Products /> },
+  { path: "/products/", component: <ProductDetail /> },
   { path: "/news", component: <News /> },
   { path: "/contact", component: <Contact /> },
   { path: "/about", component: <About /> },

@@ -1,0 +1,35 @@
+.hero {
+    position: relative;
+    height: 400px;
+}
+
+.hero-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+
+.hero-title {
+    font-size: 42px;
+    color: #fff;
+    line-height: 49px;
+    font-weight: 700;
+    color: #fff;
+    border-bottom: 5px solid #f54f29;
+}
+
+.hero-sub-title {
+    color: #fff;
+    font-size: 18px;
+    margin-top: 7px;
+    word-spacing: 5px;
+    text-align: center;
+}
