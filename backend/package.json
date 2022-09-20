@@ -1,10 +1,10 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "sneacker shop",
+  "description": "sneaker shop",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --inspect server.js"
+    "start": "nodemon server.js"
   },
   "author": "Le Vu",
   "license": "ISC",
@@ -13,7 +13,9 @@
     "body-parser": "^1.20.0",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.23.0"
   },
   "devDependencies": {
     "morgan": "^1.10.0",

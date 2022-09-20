@@ -4,7 +4,9 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = 8000;
 const router = require("./routers/index");
-const db = require("./db/database");
+const sequelize = require("./database/database");
+const productModel = require("./models/product.model");
+const categoryModel = require("./models/category.model");
 
 app.use(express.json());
 
@@ -18,4 +20,12 @@ app.listen(port, () => {
   console.log(`Server is running on ${port}`);
 });
 
-// db.connectDB();
+// check connect database
+sequelize.checkConnect();
+
+// sync product model
+// productModel.syncProductModel();
+
+// // sync product model
+
+// categoryModel.syncCategoryModel();
