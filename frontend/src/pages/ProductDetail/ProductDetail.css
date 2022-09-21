@@ -1,0 +1,106 @@
+.sale {
+    width: 20%;
+    height: 25px;
+    top: 10px;
+    left: 10px;
+    border-radius: 5px;
+    background-color: #428eff;
+}
+
+.text-name-detail {
+    color: #525252;
+    font-size: 23px;
+    line-height: 31px;
+    font-weight: 700;
+}
+
+.text-price-detail {
+    color: #c41a1a;
+    font-size: 25px;
+    line-height: 35px;
+    font-weight: 700;
+}
+
+.sub-price-detail {
+    color: #636363;
+    font-size: 17px;
+    line-height: 25px;
+    text-decoration: line-through!important;
+}
+
+.code-product {
+    color: #636363;
+    font-size: 17px;
+    line-height: 25px;
+    font-weight: 500;
+}
+
+.select-size-detail {
+    font-size: 17px;
+    line-height: 25px;
+    color: #1c1c1c;
+}
+
+.sub-size {
+    color: #1c1c1c;
+    text-decoration: underline!important;
+    color: #636363;
+    font-size: 17px;
+    line-height: 25px;
+}
+
+
+.link-size-detail {
+    width: 80px;
+    height: 50px;
+    border: 3px solid rgb(128,128,128);
+    cursor: pointer;
+}
+
+.active-detail {
+    border: #f54f29 3px solid;
+}
+
+.sub-out-product2 {
+    border-radius: 10px;
+    width: 300px;
+    height: 50px;
+    background-color: #f54f29;
+    color: #fff;
+    font-size: 17px;
+    line-height: 25px;
+    font-weight: 500;
+}
+
+.sub-heart {
+    border-radius: 10px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #afafaf;
+}
+
+.bi-heart-fill {
+    font-size: 20px;
+    color: rgb(170,170,170);
+}
+
+.sub-heart:hover {
+    border: 3px solid #f54f29;
+}
+
+.bi-heart-fill:hover {
+    color: rgb(197,79,79)!important;
+}
+
+.rating .bi-star-fill, .rating .bi-star {
+    font-size: 20px;
+    color: #ff9727;
+}
+
+.text-report {
+    color: #636363;
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: 500;
+}
