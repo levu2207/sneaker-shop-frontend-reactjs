@@ -1,48 +1,68 @@
-const getList = () => {
+const { Product } = require("../models");
+
+const getList = async () => {
+  const productList = await Product.findAll();
   if (productList) return productList;
   else return false;
 };
 
-const getDetail = (id) => {
-  const index = productList.findIndex((product) => product.id === id);
-
-  if (index !== -1) {
-    const product = productList[index];
+const getDetail = async (id) => {
+  const product = await Product.findOne({
+    where: {
+      id,
+    },
+  });
+  if (product) {
     return product;
   } else {
     return false;
   }
 };
 
-const create = (product) => {
-  const newProduct = { ...product };
-  productList = [...productList, newProduct];
+const create = async (product) => {
+  const newProduct = await Product.create(product);
   return newProduct;
 };
 
-const update = (id, product) => {
-  const index = productList.findIndex((product) => product.id === id);
+const update = async (id, product) => {
+  const productOld = await getDetail(id);
 
-  if (index !== -1) {
-    const productOld = productList[index];
-    const productUpdated = {
-      ...productOld,
-      ...product,
-    };
+  if (productOld) {
+    productOld.brand = product.brand;
+    productOld.product_name = product.product_name;
+    productOld.description = product.description;
+    productOld.price = product.price;
+    productOld.size = product.size;
+    productOld.sale = product.sale;
+    productOld.category_id = product.category_id;
+    productOld.image1 = product.image1;
+    productOld.image2 = product.image2;
+    productOld.image3 = product.image3;
+    productOld.image4 = product.image4;
+
+    const productUpdated = await productOld.save();
+
     return productUpdated;
   } else {
     return false;
   }
 };
 
-const deleteById = (id) => {
-  const index = productList.findIndex((product) => product.id === id);
+const deleteById = async (id) => {
+  const productDeleted = await Product.findOne({
+    where: {
+      id,
+    },
+  });
 
-  if (index !== -1) {
-    const product = productList[index];
-    productList.slice(index, 1);
+  if (productDeleted) {
+    await Product.destroy({
+      where: {
+        id,
+      },
+    });
 
-    return product;
+    return productDeleted;
   } else {
     return false;
   }

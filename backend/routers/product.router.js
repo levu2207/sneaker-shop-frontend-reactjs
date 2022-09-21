@@ -1,15 +1,15 @@
 const express = require("express");
+const productController = require("../controllers/product.controller");
 const productRouter = express.Router();
 
-const productController = require("../controllers/product.controller");
 const { logFeature } = require("../middlewares/logger/log-feature");
 const { checkEmty } = require("../middlewares/validations/product.validation");
 
-productRouter.get("/", logFeature, productController.getProductList);
+productRouter.get("/", productController.getProductList);
 
 productRouter.get("/:id", productController.getProductDetailsById);
 
-productRouter.post("/", checkEmty, productController.createProduct);
+productRouter.post("/", productController.createProduct);
 
 productRouter.put("/:id", productController.updateProduct);
 

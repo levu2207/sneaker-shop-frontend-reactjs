@@ -1,4 +1,6 @@
 const { Sequelize } = require("sequelize");
+const { createCategoryModel } = require("./category.model");
+const { createProductModel } = require("./product.model");
 require("dotenv").config();
 
 const sequelize = new Sequelize(
@@ -20,7 +22,13 @@ const checkConnect = async () => {
   }
 };
 
+const Product = createProductModel(sequelize);
+
+const Category = createCategoryModel(sequelize);
+
 module.exports = {
   sequelize,
   checkConnect,
+  Product,
+  Category,
 };

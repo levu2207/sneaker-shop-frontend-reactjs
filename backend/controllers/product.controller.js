@@ -2,59 +2,60 @@ const productService = require("../services/product.services");
 
 // Product controller
 
-const getProductList = (req, res) => {
-  const productList = productService.getList();
+const getProductList = async (req, res) => {
+  const productList = await productService.getList();
   if (productList) {
     res.status(200).send(productList);
   } else {
-    res.status(404).send("Product not found");
+    res.status(404).send({ message: "Product not found" });
   }
 };
 
-const getProductDetailsById = (req, res) => {
+const getProductDetailsById = async (req, res) => {
   const { id } = req.params;
 
-  const product = productService.getDetail(id);
+  const product = await productService.getDetail(id);
 
   if (product) {
     res.status(200).send(product);
   } else {
-    res.status(404).send("Product not found");
+    res.status(404).send({ message: "Product not found" });
   }
 };
 
-const createProduct = (req, res) => {
+const createProduct = async (req, res) => {
   let product = req.body;
 
-  const newProduct = productService.create(product);
+  const newProduct = await productService.create(product);
 
   if (newProduct) {
     res.status(201).send(product);
   }
 };
 
-const updateProduct = (req, res) => {
+const updateProduct = async (req, res) => {
   const { id } = req.params;
   let product = req.body;
 
-  const productUpdated = update(id, product);
+  const productUpdated = await productService.update(id, product);
 
   if (productUpdated) {
     res.status(200).send(productUpdated);
   } else {
-    res.status(404).send("Product not found");
+    res.status(404).send({ message: "Product not found" });
   }
 };
 
-const deleteProduct = (req, res) => {
+const deleteProduct = async (req, res) => {
   const { id } = req.params;
 
-  const productDeleted = productService.deleteById(id);
+  // const productDeleted = await productService.getDetail(id);
 
+  const productDeleted = await productService.deleteById(id);
   if (productDeleted) {
     res.status(200).send(productDeleted);
   } else {
-    res.status(404).send("Product not found");
+    res.status(404).send({ message: "Product not found" });
   }
 };
 
