@@ -55,11 +55,6 @@ const createProductModel = (sequelize) => {
 
       category_id: {
         type: DataTypes.INTEGER,
-
-        reference: {
-          model: Category,
-          key: "id",
-        },
       },
     },
     {

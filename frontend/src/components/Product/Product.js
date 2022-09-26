@@ -8,7 +8,7 @@ import "./product.css";
 
 const Product = (props) => {
   // const { brand, name, price, sale } = props;
-  const salePercent = Number(products[0].sale.slice(0, 2));
+  const salePercent = Number(products[0].sale);
   const navigate = useNavigate();
 
   const handleProductDetail = (e) => {
