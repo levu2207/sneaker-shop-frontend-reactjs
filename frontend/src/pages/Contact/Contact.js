@@ -3,6 +3,7 @@ import Hero from "../../components/Hero/Hero";
 import "./Contact.css"
 import heroContact from "../../Assets/image/hero-contact.jpg" 
 import Title from './../../components/Title/Titile';
+import CustomizeButton from './../../components/Buttons/CustomizeButton';
 
 const Contact = () => {
   return (
@@ -139,9 +140,9 @@ const Contact = () => {
                                           align-items-center
                                         "
                               >
-                                <a
+                                <CustomizeButton
                                   href="/"
-                                  className="
+                                  className="secondary-btn
                                             sub-out-product
                                             btn-contact
                                             d-flex
@@ -151,7 +152,7 @@ const Contact = () => {
                                           "
                                 >
                                   Gửi
-                                </a>
+                                </CustomizeButton>
                               </div>
                             </div>
                           </form>

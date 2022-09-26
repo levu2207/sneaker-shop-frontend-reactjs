@@ -7,6 +7,7 @@ import News from "./../pages/News/News";
 import NotFound from "./../pages/NotFound/NotFound";
 import Products from "./../pages/Products/Products";
 import ProductDetail from "./../pages/ProductDetail/ProductDetail";
+import Pay from './../pages/Pay/Pay';
 
 const routes = [
   { path: "", component: <Home /> },
@@ -18,6 +19,7 @@ const routes = [
   { path: "/about", component: <About /> },
   { path: "/cart", component: <Cart /> },
   { path: "/login", component: <Login /> },
+  { path: "/pay", component: <Pay /> },
   { path: "*", component: <NotFound /> },
 ];
 

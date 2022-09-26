@@ -3,6 +3,7 @@ import "./News.css";
 import Title from "./../../components/Title/Titile";
 import Hero from "../../components/Hero/Hero";
 import heroNews from "../../Assets/image/hero-news.jpeg"
+import CustomizeButton from './../../components/Buttons/CustomizeButton';
 
 const News = () => {
   return (
@@ -152,9 +153,9 @@ const News = () => {
                               align-items-center
                           "
                   >
-                    <a
+                    <CustomizeButton
                       href ="/"
-                      className="
+                      className=" secondary-btn
                               sub-out-product
                               d-flex
                               justify-content-center
@@ -163,7 +164,7 @@ const News = () => {
                               "
                     >
                       Xem thêm
-                    </a>
+                    </CustomizeButton>
                   </div>
                 </div>
               </div>
@@ -319,9 +320,9 @@ const News = () => {
                           align-items-center
                       "
                   >
-                    <a
+                    <CustomizeButton
                       href ="/"
-                      className="
+                      className=" secondary-btn
                           sub-out-product
                           d-flex
                           justify-content-center
@@ -330,7 +331,7 @@ const News = () => {
                           "
                     >
                       Xem thêm
-                    </a>
+                    </CustomizeButton>
                   </div>
                 </div>
               </div>
