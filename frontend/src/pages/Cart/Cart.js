@@ -83,7 +83,7 @@ const Cart = () => {
                     </p>
                   </div>
                   <div className="col-lg-1 col-md-1 d-flex justify-content-end align-items-center">
-                    <a href>
+                    <a href="/">
                       <i className="bi bi-x close-cart" id={1} />
                     </a>
                   </div>
