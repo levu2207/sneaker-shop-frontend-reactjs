@@ -17,11 +17,12 @@ const Products = () => {
         <div className="row">
           <Title page="Sneaker" />
           <div className="list-sneaker">
-            <div className="container">
+            <div className="container mt-4">
               <div className="row">
-                <div className="sub-shop-header ">
+                <div className="sub-shop-header">
                   <div className="sort d-flex justify-content-center align-items-center">
-                    <p className="text-sort me-4 m-0">Hiển thị 0 - 15 trong 30 sản phẩm</p>
+                    <p className="text-sort me-4 m-2">Hiển thị 0 - 15 trong 30 sản phẩm</p>
+                    <div className="selections">
                     <select>
                       <option value>Thứ tự mặc định</option>
                       <option value>Thứ tự theo mức độ phổ biến</option>
@@ -30,6 +31,7 @@ const Products = () => {
                       <option value>Thứ tự giá từ thấp đến cao</option>
                       <option value>Thứ tự giá từ cao xuống thấp</option>
                     </select>
+                    </div>
                   </div>
                 </div>
               </div>

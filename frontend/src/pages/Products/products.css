@@ -23,6 +23,8 @@
     font-weight: 400;
 }
 
+
+
 .sort select {
     height: 40px;
     width: 250px;
@@ -133,3 +135,31 @@
     font-size: 14px;
     color: #ff972b;
 }
+
+
+@media (max-width: 740px) { 
+    .sort {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item-list {
+        display: none;
+    }
+
+    .selections {
+        margin-top: 16px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+ }
+
+ @media (min-width: 768px) and (max-width: 1024px) {
+    .item-list {
+        display: none;
+    }
+
+ }

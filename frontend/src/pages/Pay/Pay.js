@@ -27,7 +27,7 @@ const Pay = () => {
                       <div className="col-lg-12">
                         <p className="heading-checkout">Thông tin giao hàng</p>
                       </div>
-                      <div className="col-lg-8">
+                      <div className="col-lg-8 mb-4">
                         <input
                           className="input-address w-100 p-3"
                           type="text"
