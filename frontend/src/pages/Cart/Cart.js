@@ -48,7 +48,7 @@ const Cart = () => {
               <div className="display-close mt-4 p-3 cart-checkout">
                 <div className="row h-100">
                   <div className="col-lg-3 col-md-3 col-3 d-flex justify-content-start align-items-center">
-                    <div className="row d-center">
+                    <div className="row d-center info-cart-item ">
                       <div className="col-lg-5 col-md-6 col-6 col-10 display-option">
                         <img
                           className="img-cart1"
