@@ -17,7 +17,7 @@ const Product = (props) => {
   };
 
   return (
-    <div className="product-main col-lg-3 col-md-6 col-sm-6 col-9 mt-2 py-2">
+    <div className="product-main col-xl-3 col-lg-4 col-md-6 col-sm-6 col-8 mt-2 py-2">
       <div className="product-wrap m-3">
         <div className="product-card p-3">
           {/* Ribbon sale */}

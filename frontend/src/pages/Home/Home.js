@@ -1,13 +1,13 @@
 import React from "react";
-import Banner from "../../components/Banner/Banner";
-import Product from "../../components/Product/Product";
-import SliderNike from "../../components/Slider/SliderNike";
-import CustomizeButton from "../../components/Buttons/CustomizeButton";
-import "./home.css";
 import { useNavigate } from "react-router-dom";
 import imgNews1 from "../../Assets/image/news/news1.jpg";
 import imgNews2 from "../../Assets/image/news/news2.jpg";
 import imgNews3 from "../../Assets/image/news/news3.jpg";
+import Banner from "../../components/Banner/Banner";
+import CustomizeButton from "../../components/Buttons/CustomizeButton";
+import Product from "../../components/Product/Product";
+import SliderNike from "../../components/Slider/SliderNike";
+import "./home.css";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="support-item col-lg-3 col-md-6 col-12">
+          <div className="support-item col-lg-3 col-md-6 col-12 mt-3">
             <div className="w-100 d-flex justify-content-center align-items-center flex-column">
               <i className="support-icon bi bi-arrow-repeat"></i>
               <p className="support-title">Đổi trả hoàn tiền</p>
@@ -36,7 +36,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="support-item col-lg-3 col-md-6 col-12">
+          <div className="support-item col-lg-3 col-md-6 col-12 mt-3">
             <div className="w-100 d-flex justify-content-center align-items-center flex-column">
               <i className="support-icon bi bi-headset"></i>
               <p className="support-title">Hỗ trợ trực tuyến</p>
@@ -44,7 +44,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="support-item col-lg-3 col-md-6 col-12">
+          <div className="support-item col-lg-3 col-md-6 col-12 mt-3">
             <div className="w-100 d-flex justify-content-center align-items-center flex-column">
               <i className="support-icon bi bi-receipt-cutoff"></i>
               <p className="support-title">Ưu đãi và khuyến mãi</p>
@@ -58,7 +58,7 @@ const Home = () => {
       <div className="container">
         <div className="category my-4">
           <div className="row h-100">
-            <div className="col-lg-4 col-md-4 col-12">
+            <div className="col-lg-4 col-md-4 col-12 mb-3">
               <div className="category-item category-women d-flex align-items-center justify-content-center">
                 <div className="category-content d-flex flex-column justify-content-center align-items-center">
                   <p className="category-title ">Women's</p>
@@ -68,7 +68,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="col-lg-4 col-md-4 col-12">
+            <div className="col-lg-4 col-md-4 col-12 mb-3">
               <div className="category-item category-men d-flex align-items-center justify-content-center">
                 <div className="category-content d-flex flex-column justify-content-center align-items-center">
                   <p className="category-title ">Men's</p>
@@ -78,7 +78,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="col-lg-4 col-md-4 col-12">
+            <div className="col-lg-4 col-md-4 col-12 mb-3">
               <div className="category-item category-kid d-flex align-items-center justify-content-center">
                 <div className="category-content d-flex flex-column justify-content-center align-items-center">
                   <p className="category-title ">Kid's</p>

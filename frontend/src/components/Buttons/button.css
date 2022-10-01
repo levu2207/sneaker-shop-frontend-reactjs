@@ -14,28 +14,18 @@
   font-weight: 500;
 }
 
-/* .third-btn {
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 1px solid var(--secondary-color);
-  background-color: var(--secondary-color);
-  color: white;
-  font-weight: 500;
-} */
-
 .primary-btn:hover,
 .secondary-btn:hover {
-  scale: 1.1;
+  scale: 1.05;
   transition: 0.3s linear;
 }
 
-/* .secondary-btn:hover {
-  background-color: var(--secondary-color);
-  color: var(--white-color);
-} */
-
 .big {
   padding: 14px 40px;
+}
+
+.small {
+  padding: 4px 8px;
 }
 
 .rounded-btn-1 {

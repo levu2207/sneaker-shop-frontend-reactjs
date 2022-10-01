@@ -1,84 +1,166 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../Assets/image/logo.png";
-import Login from "../pages/Login/Login";
-import "./header.css";
+import MobileMenu from "../components/MobileMenu/MobileMenu";
+import { logout } from "../redux/reducers/authSlice";
 import FavoriteList from "./../components/FavoriteList/FavoriteList";
+import "./header.css";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const userInfo = useSelector((state) => state.auth.userInfo);
 
   return (
-    <div className="header d-flex justify-content-center align-items-center">
-      <div className="container position-relative p-0">
-        <div className="h-100 d-flex justify-content-between align-items-center">
-          <div className="logo">
-            <Link to="/home">
-              <img className="logo-home" src={logo} alt="logo" />
-            </Link>
-          </div>
+    <>
+      <header className="header d-flex justify-content-center align-items-center">
+        <div className="container">
+          <div className="header-wrapper row ">
+            <div className="logo col-sm-10 col-md-2 col-4">
+              <Link to="/home">
+                <img className="header-logo" src={logo} alt="logo" />
+              </Link>
+            </div>
+            <div className="header-main col-8 col-md-6 col-lg-7 d-flex justify-content-center align-items-center">
+              <div className="header-navbar d-flex flex-column justify-content-center align-items-center">
+                {/* Menu */}
 
-          {/* Menu */}
-          <div className="menu">
-            <ul className="d-flex">
-              <li>
-                <NavLink className="menu-item" to="/home">
-                  Trang chủ
-                </NavLink>
-              </li>
+                <div className="menu my-2">
+                  <NavLink className="menu-item" to="/home">
+                    Trang chủ
+                  </NavLink>
 
-              <li>
-                <NavLink className="menu-item" to="/products">
-                  Sneaker
-                </NavLink>
-              </li>
+                  <NavLink className="menu-item" to="/products">
+                    Sneaker
+                  </NavLink>
 
-              <li>
-                <NavLink className="menu-item" to="/news">
-                  Tin tức
-                </NavLink>
-              </li>
+                  <NavLink className="menu-item" to="/news">
+                    Tin tức
+                  </NavLink>
 
-              <li>
-                <NavLink className="menu-item" to="/contact">
-                  Liên hệ
-                </NavLink>
-              </li>
+                  <NavLink className="menu-item" to="/contact">
+                    Liên hệ
+                  </NavLink>
 
-              <li>
-                <NavLink className="menu-item" to="/about">
-                  Chúng tôi
-                </NavLink>
-              </li>
-            </ul>
-          </div>
+                  <NavLink className="menu-item-last" to="/about">
+                    Chúng tôi
+                  </NavLink>
+                </div>
 
-          <div className="user d-flex align-items-center">
-            {/* Cart */}
-            <div onClick={() => navigate("/cart")} className="user-cart">
-              <i className="cart bi bi-bag-check-fill" title="Giỏ hàng của bạn"></i>
-              <span className="cart-amount">0</span>
+                {/* Search */}
+                <div className="menu-search ">
+                  <input className="search-input" type="search" placeholder="Tên sản phẩm" />
+                  <button type="button" className="search-button ">
+                    Tìm kiếm
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Search */}
-            <div className="fs-3 user-search mx-3" title="Tìm kiếm sản phẩm">
-              <i className="bi bi-search"></i>
-            </div>
+            <div className="user-info col-2 col-md-4 col-lg-3">
+              {/* Login */}
+              {isLoggedIn ? (
+                <div className="d-flex justify-content-center my-2">
+                  <p className="user-login me-1" onClick={(e) => navigate("/profile")}>
+                    {userInfo.fullName}
+                  </p>
+                  <span> / </span>
+                  <p className="user-register ms-1" onClick={() => dispatch(logout())}>
+                    Đăng xuất
+                  </p>
+                </div>
+              ) : (
+                <div className="d-flex justify-content-center my-2">
+                  <p className="user-login me-1" onClick={(e) => navigate("/login")}>
+                    Đăng nhập
+                  </p>
+                  <span> / </span>
+                  <p className="user-register ms-1" onClick={(e) => navigate("/register")}>
+                    Đăng ký
+                  </p>
+                </div>
+              )}
 
-            {/* Favorite */}
+              <div className=" d-flex justify-content-between align-items-center mb-3">
+                {/* Favorite */}
+                <FavoriteList
+                  title={
+                    <i className="bi bi-heart " title="Danh sách yêu thích">
+                      {" "}
+                      Yêu thích
+                    </i>
+                  }
+                >
+                  FavoriteList
+                </FavoriteList>
 
-            <FavoriteList>
-              <i className="bi bi-heart" title="Danh sách yêu thích"></i>
-            </FavoriteList>
-
-            {/* Login */}
-            <div className="fs-3 user-login mx-3">
-              <Login />
+                {/* Cart */}
+                <div onClick={() => navigate("/cart")} className="user-cart">
+                  <i className="cart bi bi-bag-check-fill ms-2" title="Giỏ hàng của bạn"></i>
+                  <span className="cart-amount">0</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+
+        {/* mobile  menu */}
+        <MobileMenu>
+          <div className="mobile-menu-main">
+            <div className="mobile-menu-header">
+              <h1>Sneaker Shop</h1>
+            </div>
+
+            <ul className="mobile-menu-content">
+              <Link to="/home" className="mobile-menu-item">
+                Trang chủ
+              </Link>
+              <Link to="/products" className="mobile-menu-item">
+                Sneaker
+              </Link>
+              <Link to="/news" className="mobile-menu-item">
+                Tin Tức
+              </Link>
+              <Link to="/contact" className="mobile-menu-item">
+                Liên hệ
+              </Link>
+              <Link to="/about" className="mobile-menu-item">
+                Chúng tôi
+              </Link>
+            </ul>
+
+            <div className="mobile-menu-search">
+              <input type="text" />
+              <button>Tìm</button>
+            </div>
+
+            {isLoggedIn ? (
+              <div className="mobile-menu-signin">
+                <p className="me-1" onClick={() => navigate("./profile")}>
+                  {userInfo.fullName}
+                </p>
+                <span>/</span>
+                <p className="ms-1" onClick={() => dispatch(logout())}>
+                  Đăng xuất
+                </p>
+              </div>
+            ) : (
+              <div className="mobile-menu-signin">
+                <Link to="/login" className="me-1">
+                  Đăng nhập
+                </Link>
+                <span>/</span>
+                <Link to="/register" className="ms-1">
+                  Đăng ký
+                </Link>
+              </div>
+            )}
+          </div>
+        </MobileMenu>
+      </header>
+    </>
   );
 };
 
