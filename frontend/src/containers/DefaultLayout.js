@@ -3,10 +3,11 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./Header";
 import routes from "./../routes/routes";
 import Footer from "./Footer";
+import { SearchProvider } from "../components/Product/SearchContext";
 
 const DefaultLayout = () => {
   return (
-    <>
+    <SearchProvider>
       <Header />
       <Routes>
         {routes.map((route, idx) => (
@@ -14,7 +15,7 @@ const DefaultLayout = () => {
         ))}
       </Routes>
       <Footer />
-    </>
+    </SearchProvider>
   );
 };
 

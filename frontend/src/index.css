@@ -44,6 +44,7 @@ h6 {
   --secondary-color: #f0482d;
   --black-color: black;
   --white-color: white;
+  --bg-color: rgb(245, 245, 245);
 }
 
 body {
@@ -53,4 +54,10 @@ body {
 
 a:hover {
   color: var(--secondary-color);
+}
+
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
 }

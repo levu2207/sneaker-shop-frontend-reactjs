@@ -1,17 +1,21 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../Assets/image/logo.png";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
+import { SearchContext } from "../components/Product/SearchContext";
 import { logout } from "../redux/reducers/authSlice";
 import FavoriteList from "./../components/FavoriteList/FavoriteList";
 import "./header.css";
 
 const Header = () => {
+  const contextSearch = useContext(SearchContext);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const userInfo = useSelector((state) => state.auth.userInfo);
+
+  const handleChangeSearch = (e) => {};
 
   return (
     <>
@@ -50,12 +54,20 @@ const Header = () => {
                 </div>
 
                 {/* Search */}
-                <div className="menu-search ">
-                  <input className="search-input" type="search" placeholder="Tên sản phẩm" />
-                  <button type="button" className="search-button ">
+                <form
+                  // onSubmit={(e) => contextSearch.handleSubmitSearch(e)}
+                  className="menu-search "
+                >
+                  <input
+                    onChange={(e) => contextSearch.handleSubmitSearch(e)}
+                    className="search-input"
+                    type="search"
+                    placeholder="Tên sản phẩm"
+                  />
+                  <button type="submit" className="search-button ">
                     Tìm kiếm
                   </button>
-                </div>
+                </form>
               </div>
             </div>
 
@@ -132,7 +144,7 @@ const Header = () => {
             </ul>
 
             <div className="mobile-menu-search">
-              <input type="text" />
+              <input type="text" onChange={(e) => handleChangeSearch(e)} />
               <button>Tìm</button>
             </div>
 

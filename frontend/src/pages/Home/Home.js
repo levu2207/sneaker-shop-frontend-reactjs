@@ -1,16 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import imgNews1 from "../../Assets/image/news/news1.jpg";
 import imgNews2 from "../../Assets/image/news/news2.jpg";
 import imgNews3 from "../../Assets/image/news/news3.jpg";
 import Banner from "../../components/Banner/Banner";
 import CustomizeButton from "../../components/Buttons/CustomizeButton";
-import Product from "../../components/Product/Product";
+import ProductList from "../../components/Product/ProductList";
 import SliderNike from "../../components/Slider/SliderNike";
+import productService from "../../services/productService";
 import "./home.css";
 
 const Home = () => {
   const navigate = useNavigate();
+  // const [productList, setProductList] = useState([]);
+
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const { data } = await productService.list();
+  //       setProductList(data);
+  //     } catch (error) {
+  //       console.log("Failed to get product list", error.message);
+  //     }
+  //     // setLoading(false);
+  //   })();
+  // }, []);
 
   return (
     <>
@@ -18,7 +32,7 @@ const Home = () => {
       <Banner />
 
       {/* Support */}
-      <div className="support my-5">
+      <div className="support container my-5">
         <div className="row">
           <div className="support-item col-lg-3 col-md-6 col-12">
             <div className="w-100 d-flex justify-content-center align-items-center flex-column">
@@ -108,12 +122,7 @@ const Home = () => {
             </div>
 
             <div className="col-lg-12 mt-3">
-              <div className="row justify-content-center">
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-              </div>
+              <div className="row justify-content-center">{/* <ProductList /> */}</div>
 
               <div className="d-flex justify-content-center mt-3">
                 <CustomizeButton
