@@ -46,35 +46,47 @@ const Cart = () => {
           <div className="col-lg-12">
             <div className="list-cart">
               <div className="display-close mt-4 p-3 cart-checkout">
-                <div className="row h-100">
-                  <div className="col-lg-3 col-md-3 col-3 d-flex justify-content-start align-items-center">
-                    <div className="row d-center info-cart-item ">
-                      <div className="col-lg-5 col-md-6 col-6 col-10 display-option">
+                <div className="cart-info row h-100">
+                  <div className="col-lg-3 col-md-3 col-12 d-flex justify-content-center align-items-center">
+                    <div className="row">
+                      <div className="col-lg-5 col-md-6 col-12 col-10 display-option">
                         <img
                           className="img-cart1"
                           src="https://sneaker97.herokuapp.com/image/img/nike-air-max-deatail2.jpg"
                           alt="Fail"
                         />
                       </div>
-                      <div className="col-lg-7 col-md-7 col-12 display-option">
+                      <div className="col-lg-7 col-md-7 col-12 display-option justify-content-center">
                         <p className="text-list-product m-0">AIR MAX 270</p>
                       </div>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-2 col-12 display-option">
+                    <p className="text-header-cart1">Giá :</p>
                     <p className="cart-money m-0">1.755.000</p>
                   </div>
                   <div className="col-lg-2 col-md-2 col-12 display-option">
+                    <p className="text-header-cart1">Size :</p>
                     <p className="cart-size m-0">41</p>
                   </div>
                   <div className="col-lg-2 col-md-2 col-12 display-option">
+                    <p className="text-header-cart1">Số lượng :</p>
                     <div className="nice-number">
-                      <button type="button" className="minus">-</button>
-                      <span className="num">01</span>
-                      <button type="button" className="plus">+</button>
+                      <button type="button">-</button>
+                      <input
+                        type="number"
+                        className="inputCart"
+                        defaultValue={1}
+                        min={1}
+                        max={9}
+                        data-nice-number-initialized="true"
+                        style={{ width: "2ch" }}
+                      />
+                      <button type="button">+</button>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-2 col-12 display-option">
+                    <p className="text-header-cart1">Tạm tính :</p>
                     <p
                       className="cart-money result-money m-0"
                       value="1.755.000"
@@ -93,24 +105,21 @@ const Cart = () => {
           </div>
 
           <div className="col-lg-12 mt-3">
-            <div className="row ">
-              <div className="col-lg-7 col-md-6 col-5 p-3 note-total">
+            <div className="total-section row">
+              <div className="col-lg-7 col-md-6 col-12 p-5 note-total">
                 <CustomizeButton
                   href="/Products"
                   className="secondary-btn sub-out-product1 d-flex justify-content-center align-items-center text-center "
                 >
-                  Tiếp tụp mua sắm
+                  Tiếp tục mua sắm
                 </CustomizeButton>
               </div>
-              <div className="col-lg-2 col-md-3 col-4 d-flex justify-content-center align-items-center">
-                <p className="text-total m-0" style={{ display: "block" }}>
+              <div className="col-lg-4 col-md-6 d-flex justify-content-between align-items-center">
+                <p className="text-total m-0">
                   Tổng cộng :
                 </p>
-              </div>
-              <div className="col-lg-2 col-md-2 col-3 d-flex justify-content-center align-items-center">
                 <p
                   className="cart-money total-money m-0"
-                  style={{ display: "block" }}
                 >
                   1.755.000đ
                 </p>
@@ -133,14 +142,14 @@ const Cart = () => {
                     Email để nhận mã voucher.
                   </p>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-6 pt-5">
                   <form className="form-sale">
                     <p className="text-header-sale pb-3">Khuyễn mãi</p>
                     <div className="tamtinh d-flex justify-content-between align-items-center">
                       <p className="money-tam">Tạm tính :</p>
                       <p className="money-info">1.755.000đ</p>
                     </div>
-                    <div className="tamtinh mt-3 position-relative d-flex justify-content-between align-items-center">
+                    <div className="tamtinh mt-5 position-relative d-flex justify-content-between align-items-center">
                       <p className="money-tam m-0">Voucher :</p>
                       <input type="text" placeholder="Mã giảm giá" />
                       <CustomizeButton className="primary-btn btn-sale position-absolute">

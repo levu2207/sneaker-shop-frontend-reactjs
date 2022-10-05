@@ -21,6 +21,10 @@
     margin-bottom: 0;
 }
 
+.text-header-cart1 {
+    display: none;
+}
+
 
 .tab-info {
     font-style: normal;
@@ -191,9 +195,9 @@
     color: #fff;
     font-style: normal;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 18px;
-    width: 105px;
+    width: 120px;
     height: 50px;
     background-color: rgb(235,65,50);
 }
@@ -211,15 +215,76 @@
     color: #6d6d6d;
 }
 
-@media (max-width: 740px) {
+@media (max-width: 768px) {
 
     .header-cart {
         display: none;
     }
 
+    .text-header-cart1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        color: #000;
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 700;
+    }
+    
+    .display-option {
+        justify-content: space-between;
+        margin-top: 8px !important; 
+    }
+
+    .note-total {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .total-section {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .money-tam {
+        color: #000;
+        font-size: 18px;
+        line-height: 28px;
+        font-weight: 700;
+    }
+
+    .tamtinh input {
+        width: 200px;
+        height: 40px;
+        font-size: 14px;
+        margin-left: 10px;
+    }
+
+    .btn-sale {
+        height: 40px;
+    }
+    
+    .primary-btn {
+        width: 90px;
+        font-size: 10px;
+        font-weight: 700;
+    }
+
 
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1180px) {
+    .text-header-cart {
+        text-align: center;
+        font-size: 18px;
+        color: #fff;
+        line-height: 30px;
+        font-weight: 800;
+        margin-bottom: 0;
+    }
 
+    .text-list-product {
+        font-size: 11px;
+    }
 }
