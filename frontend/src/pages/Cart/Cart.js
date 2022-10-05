@@ -108,7 +108,7 @@ const Cart = () => {
             <div className="total-section row">
               <div className="col-lg-7 col-md-6 col-12 p-5 note-total">
                 <CustomizeButton
-                  href="/Products"
+                  onClick={() => navigate("/Products")}
                   className="secondary-btn sub-out-product1 d-flex justify-content-center align-items-center text-center "
                 >
                   Tiếp tục mua sắm
