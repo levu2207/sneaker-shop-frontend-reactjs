@@ -7,8 +7,8 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="container pt-5">
-        <div className="row d-flex justify-content-between align-items-start">
-          <div className="col-lg-3 col-md-3 col-sm-6 p-0 d-flex justify-content-start align-items-center">
+        <div className="footer-content row">
+          <div className="col-8 col-lg-3 col-md-3 col-sm-6 p-0 d-flex justify-content-start align-items-center">
             <div className="item-logo">
               <a className="text-decoration-none text-logo h-100" href="/home">
                 <img className="logo-footer" src={logo} alt="logo" />
@@ -35,8 +35,8 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="col-lg-3 col-md-3 col-sm-6 p-0 d-flex justify-content-start align-items-center">
-            <div className="container d-flex flex-column">
+          <div className="col-8 col-lg-3 col-md-3 col-sm-6 p-0 d-flex justify-content-start align-items-center">
+            <div className="container d-flex flex-column pt-4">
               <p className="header-end mb-4 fs-4 text-white lh-1">Thông tin</p>
               <Link to="/home" className="detail-header mb-3">
                 Trang chủ
@@ -56,8 +56,8 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="col-lg-3 col-md-3 col-sm-6 p-0 d-flex justify-content-start align-items-center">
-            <div className="container d-flex flex-column">
+          <div className="col-8 col-lg-3 col-md-3 col-sm-6 p-0 d-flex justify-content-start align-items-center">
+            <div className="container d-flex flex-column pt-4">
               <p className="header-end mb-4 fs-4 text-white lh-1">Hỗ trợ</p>
               <Link to="/" className="detail-header mb-3">
                 Đổi trả
@@ -80,8 +80,8 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="col-lg-3 col-md-3 col-sm-6 p-0 d-flex justify-content-start align-items-center">
-            <div className="container d-flex flex-column">
+          <div className="col-8 col-lg-3 col-md-3 col-sm-6 p-0 d-flex justify-content-start align-items-center">
+            <div className="container d-flex flex-column pt-4">
               <p className="header-end mb-4 fs-4 text-white lh-1">Theo dõi chúng tôi</p>
               <p className="detail-header1 mb-3">
                 Nhận thông ưu đãi qua mạng xã hội với thông tin mới nhất của chúng tôi về mua sắm và

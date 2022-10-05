@@ -4,6 +4,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../Assets/image/logo.png";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import { SearchContext } from "../components/Product/SearchContext";
+import { cartItemsCountSelector } from "../pages/Cart/selectors";
 import { logout } from "../redux/reducers/authSlice";
 import FavoriteList from "./../components/FavoriteList/FavoriteList";
 import "./header.css";
@@ -14,8 +15,7 @@ const Header = () => {
   const navigate = useNavigate();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const userInfo = useSelector((state) => state.auth.userInfo);
-
-  const handleChangeSearch = (e) => {};
+  const cartItemsCount = useSelector(cartItemsCountSelector);
 
   return (
     <>
@@ -54,20 +54,21 @@ const Header = () => {
                 </div>
 
                 {/* Search */}
-                <form
-                  // onSubmit={(e) => contextSearch.handleSubmitSearch(e)}
-                  className="menu-search "
-                >
+                <div className="menu-search ">
                   <input
-                    onChange={(e) => contextSearch.handleSubmitSearch(e)}
+                    onChange={(e) => contextSearch.handleChangeSearch(e)}
                     className="search-input"
                     type="search"
                     placeholder="Tên sản phẩm"
                   />
-                  <button type="submit" className="search-button ">
+                  <button
+                    onClick={contextSearch.handleSearch}
+                    type="button"
+                    className="search-button "
+                  >
                     Tìm kiếm
                   </button>
-                </form>
+                </div>
               </div>
             </div>
 
@@ -111,7 +112,7 @@ const Header = () => {
                 {/* Cart */}
                 <div onClick={() => navigate("/cart")} className="user-cart">
                   <i className="cart bi bi-bag-check-fill ms-2" title="Giỏ hàng của bạn"></i>
-                  <span className="cart-amount">0</span>
+                  {cartItemsCount && <span className="cart-amount">{cartItemsCount}</span>}
                 </div>
               </div>
             </div>
@@ -144,8 +145,10 @@ const Header = () => {
             </ul>
 
             <div className="mobile-menu-search">
-              <input type="text" onChange={(e) => handleChangeSearch(e)} />
-              <button>Tìm</button>
+              <input type="text" onChange={(e) => contextSearch.handleChangeSearch(e)} />
+              <button type="button" onClick={contextSearch.handleSearch}>
+                Tìm
+              </button>
             </div>
 
             {isLoggedIn ? (

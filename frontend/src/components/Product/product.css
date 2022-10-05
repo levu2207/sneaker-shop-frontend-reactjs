@@ -138,3 +138,13 @@
 .product-list {
   padding: 0 8px;
 }
+
+/* product size */
+.size-item {
+  border: none;
+}
+
+.active-size {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+}

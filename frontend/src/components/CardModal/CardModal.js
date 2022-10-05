@@ -1,34 +1,67 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import nikeImage from "../../Assets/image/products/id-1/air-max-4.png";
 import CustomizeButton from "../../components/Buttons/CustomizeButton";
+import ProductSize from "../Product/ProductSize";
 
 import "./cardModal.css";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/reducers/cartSlice";
+import AddToCartForm from "../Product/AddToCartForm";
 
-const CardModal = () => {
-  const [lgShow, setLgShow] = useState(false);
+const CardModal = ({ product }) => {
+  const dispatch = useDispatch();
+
+  const [show, setShow] = useState(false);
+  const sizeList = [6, 7, 8, 9, 10, 11];
+  let sizeSelect;
+  let quantity;
+
+  const salePercent = Number(product.sale);
+  const salePrice = product.price - (product.price * salePercent) / 100;
+
+  const handleSelectSize = (value) => {
+    sizeSelect = value;
+    console.log(sizeSelect);
+  };
+
+  const handleAddToCart = (value) => {
+    quantity = value;
+    console.log(quantity);
+
+    const action = addToCart({
+      id: product.id,
+      product,
+      salePrice,
+      sizeSelect,
+      quantity,
+    });
+
+    dispatch(action);
+    setShow(false);
+  };
+
   return (
     <div>
-      <button onClick={() => setLgShow(true)} className="product-quick-view">
+      <button onClick={() => setShow(true)} className="product-quick-view">
         Xem nhanh
       </button>
 
       <Modal
         centered
         size="lg"
-        show={lgShow}
-        onHide={() => setLgShow(false)}
+        show={show}
+        onHide={() => setShow(false)}
         aria-labelledby="example-modal-sizes-title-lg"
       >
         <div className="product-modal-container d-flex justify-content-center align-items-center">
           <div className="product-modal-img">
-            <img src={nikeImage} alt="nike" />
+            <img src={product.imageArr[0]} alt="nike" />
           </div>
           <div className="product-modal-info p-4">
             <div className="product-modal-header">
-              <div className="product-brand text-center fs-3">NIKE</div>
+              <div className="product-brand text-center fs-3">{product.brand}</div>
 
-              <h3 className="product-name text-center mb-4">AIR MAX 270</h3>
+              <h3 className="product-name text-center mb-4">{product.name}</h3>
 
               <p className="product-modal-desc py-3 border-top ">
                 Ensure a comfortable running session by wearing this pair of cool running shoes from
@@ -37,24 +70,40 @@ const CardModal = () => {
             </div>
 
             <div className="size-container py-3 border-top border-bottom">
-              <h3 className="title mb-2">SIZE</h3>
+              <h5 className="title mb-2">Kích cỡ:</h5>
 
-              <div className="size-list p-2 d-flex align-items-center">
-                <span className="size-item">6</span>
-                <span className="size-item">7</span>
-                <span className="size-item">8</span>
-                <span className="size-item">9</span>
-                <span className="size-item">10</span>
-                <span className="size-item">11</span>
-              </div>
+              {/* Product size */}
+              <ProductSize sizeList={sizeList} onClick={handleSelectSize} />
             </div>
 
-            <div className="product-modal-footer my-4 d-flex justify-content-between align-items-center">
-              <CustomizeButton className="primary-btn">Thêm vào giỏ hàng</CustomizeButton>
+            <div className="product-modal-footer d-flex justify-content-between align-items-start">
+              {/* Add to cart */}
+              <AddToCartForm onClick={handleAddToCart} />
 
-              <div className="modal-footer-price ">
-                <div className="product-price text-center">1.950.000đ</div>
-                <div className="product-price-sale fs-3">1.700.000đ</div>
+              <div className="modal-footer-price py-3">
+                <div className="d-flex align-items-end">
+                  <div className="product-price text-center">
+                    {product.sale !== 0
+                      ? Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(
+                          product.price
+                        )
+                      : ""}
+                  </div>
+                  {product.sale !== 0 ? (
+                    <p className="product-modal-sale text-danger">{`-${product.sale}%`}</p>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <h2 className="product-price-sale ">
+                  {product.sale !== 0
+                    ? Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(
+                        salePrice
+                      )
+                    : Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(
+                        product.price
+                      )}
+                </h2>
               </div>
             </div>
           </div>

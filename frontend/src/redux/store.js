@@ -4,8 +4,10 @@ import storage from "redux-persist/lib/storage";
 import { createStateSyncMiddleware, initMessageListener } from "redux-state-sync";
 import thunk from "redux-thunk";
 import authReducer from "./reducers/authSlice";
+import cartReducer from "./reducers/cartSlice";
 
 const authPersistConfig = { key: "auth", storage };
+const cartPersistConfig = { key: "cart", storage };
 
 const syncConfig = {
   blacklist: ["persist/PERSIST"],
@@ -13,6 +15,7 @@ const syncConfig = {
 
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
+  cart: persistReducer(cartPersistConfig, cartReducer),
 });
 const store = configureStore({
   reducer: rootReducer,

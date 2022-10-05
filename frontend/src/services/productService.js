@@ -1,9 +1,9 @@
 import api from "./api";
 
-const list = () => api.get(api.url.products);
+const list = () => api.get(api.url.products, { params: { page: 1, limit: 8 } });
 
-const getPaging = (page, limit, price, brand, search) => {
-  const queryString = `page=${page}&limit=${limit}&price=${price}&brand=${brand}&search=${search}`;
+const getPaging = (page, limit, brand, category, search, price) => {
+  const queryString = `page=${page}&limit=${limit}&brand=${brand}&category=${category}&search=${search}&price=${price}`;
   return api.get(`${api.url.products}?${queryString}`);
 };
 

@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Cart.css";
-import Hero from './../../components/Hero/Hero';
-import heroCart from '../../Assets/image/hero-product.jpg'
-import Title from './../../components/Title/Titile';
-import CustomizeButton from './../../components/Buttons/CustomizeButton';
-import { useNavigate } from 'react-router-dom';
-
+import Hero from "./../../components/Hero/Hero";
+import heroCart from "../../Assets/image/hero-product.jpg";
+import Title from "./../../components/Title/Titile";
+import CustomizeButton from "./../../components/Buttons/CustomizeButton";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Order from "./Order";
+import { cartTotalSelector } from "./selectors";
+import convertToVnd from "../../helpers/convertToVnd";
 
 const Cart = () => {
   const navigate = useNavigate();
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartTotal = useSelector(cartTotalSelector);
+  console.log(cartItems);
+
   return (
     <>
-      <Hero
-        title="Giỏ Hàng"
-        subTitle="Các sản phẩm đã được thêm vào giỏ hàng"
-        heroImg={heroCart}
-      />
+      <Hero title="Giỏ Hàng" subTitle="Các sản phẩm đã được thêm vào giỏ hàng" heroImg={heroCart} />
 
       <div className="container">
         <div className="row">
@@ -44,85 +47,23 @@ const Cart = () => {
           </div>
 
           <div className="col-lg-12">
-            <div className="list-cart">
-              <div className="display-close mt-4 p-3 cart-checkout">
-                <div className="cart-info row h-100">
-                  <div className="col-lg-3 col-md-3 col-12 d-flex justify-content-center align-items-center">
-                    <div className="row">
-                      <div className="col-lg-5 col-md-6 col-12 col-10 display-option">
-                        <img
-                          className="img-cart1"
-                          src="https://sneaker97.herokuapp.com/image/img/nike-air-max-deatail2.jpg"
-                          alt="Fail"
-                        />
-                      </div>
-                      <div className="col-lg-7 col-md-7 col-12 display-option justify-content-center">
-                        <p className="text-list-product m-0">AIR MAX 270</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-md-2 col-12 display-option">
-                    <p className="text-header-cart1">Giá :</p>
-                    <p className="cart-money m-0">1.755.000</p>
-                  </div>
-                  <div className="col-lg-2 col-md-2 col-12 display-option">
-                    <p className="text-header-cart1">Size :</p>
-                    <p className="cart-size m-0">41</p>
-                  </div>
-                  <div className="col-lg-2 col-md-2 col-12 display-option">
-                    <p className="text-header-cart1">Số lượng :</p>
-                    <div className="nice-number">
-                      <button type="button">-</button>
-                      <input
-                        type="number"
-                        className="inputCart"
-                        defaultValue={1}
-                        min={1}
-                        max={9}
-                        data-nice-number-initialized="true"
-                        style={{ width: "2ch" }}
-                      />
-                      <button type="button">+</button>
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-md-2 col-12 display-option">
-                    <p className="text-header-cart1">Tạm tính :</p>
-                    <p
-                      className="cart-money result-money m-0"
-                      value="1.755.000"
-                    >
-                      1.755.000đ
-                    </p>
-                  </div>
-                  <div className="col-lg-1 col-md-1 d-flex justify-content-end align-items-center">
-                    <a href="/">
-                      <i className="bi bi-x close-cart" id={1} />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Order */}
+            <Order cartItems={cartItems} />
           </div>
 
           <div className="col-lg-12 mt-3">
             <div className="total-section row">
               <div className="col-lg-7 col-md-6 col-12 p-5 note-total">
                 <CustomizeButton
-                  onClick={() => navigate("/Products")}
+                  onClick={() => navigate("/products")}
                   className="secondary-btn sub-out-product1 d-flex justify-content-center align-items-center text-center "
                 >
                   Tiếp tục mua sắm
                 </CustomizeButton>
               </div>
               <div className="col-lg-4 col-md-6 d-flex justify-content-between align-items-center">
-                <p className="text-total m-0">
-                  Tổng cộng :
-                </p>
-                <p
-                  className="cart-money total-money m-0"
-                >
-                  1.755.000đ
-                </p>
+                <p className="text-total m-0">Tổng cộng :</p>
+                <p className="cart-money total-money m-0">{convertToVnd(cartTotal)}</p>
               </div>
             </div>
           </div>
@@ -132,14 +73,13 @@ const Cart = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <p className="text-info-sale">
-                    ** Khuyến mãi 30 % với đơn hàng đầu tiên, nhập mã
-                    “snekaer4u” để được áp dụng ngay trước khi thanh toán.
+                    ** Khuyến mãi 30 % với đơn hàng đầu tiên, nhập mã “snekaer4u” để được áp dụng
+                    ngay trước khi thanh toán.
                   </p>
                   <p className="text-info-sale">
-                    ** Với khách hàng mua tại của hàng với tổng hóa đơn từ trước
-                    tới nay lớn hơn 1.500.000đ sẽ nhận được voucher trị giá
-                    500.000đ, để biết thông tin vui lòng kiểm tra tin nhắn hoặc
-                    Email để nhận mã voucher.
+                    ** Với khách hàng mua tại của hàng với tổng hóa đơn từ trước tới nay lớn hơn
+                    1.500.000đ sẽ nhận được voucher trị giá 500.000đ, để biết thông tin vui lòng
+                    kiểm tra tin nhắn hoặc Email để nhận mã voucher.
                   </p>
                 </div>
                 <div className="col-lg-6 pt-5">
@@ -147,7 +87,7 @@ const Cart = () => {
                     <p className="text-header-sale pb-3">Khuyễn mãi</p>
                     <div className="tamtinh d-flex justify-content-between align-items-center">
                       <p className="money-tam">Tạm tính :</p>
-                      <p className="money-info">1.755.000đ</p>
+                      <p className="money-info">{convertToVnd(cartTotal)}</p>
                     </div>
                     <div className="tamtinh mt-5 position-relative d-flex justify-content-between align-items-center">
                       <p className="money-tam m-0">Voucher :</p>
@@ -158,7 +98,7 @@ const Cart = () => {
                     </div>
                     <div className="tamtinh mt-5 pt-3 d-flex justify-content-between align-items-center border border-end-0 border-start-0 border-bottom-0">
                       <p className="money-tam m-0">Tổng cộng :</p>
-                      <p className="money-info m-0">1.755.000đ</p>
+                      <p className="money-info m-0">{convertToVnd(cartTotal)}</p>
                     </div>
                   </form>
                   <div className="row">

@@ -7,11 +7,11 @@ const Title = (props) => {
 
   return (
     <div className="col-lg-12 d-flex py-3">
-      <Link className="text-link" to="/home">
+      <Link className="breadcrumb-text" to="/home">
         Trang chủ
       </Link>
       <span className="me-2 ms-2">/</span>
-      <p className="text-link1 m-0">{page}</p>
+      <p className="breadcrumb-text-current m-0">{page}</p>
     </div>
   );
 };

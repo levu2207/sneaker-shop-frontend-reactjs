@@ -20,19 +20,22 @@ const Products = () => {
   const [price, setPrice] = useState("");
   const [brand, setBrand] = useState("");
   const [pagingItems, setPagingItems] = useState([]);
+  const [category, setCategory] = useState("");
 
   useEffect(() => {
     loadData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, limit, price, brand, contextSearch.search]);
+  }, [page, limit, price, brand, category, contextSearch.search]);
 
   const loadData = async () => {
+    //  load product list
     const { data, pagination } = await productService.getPaging(
       page,
       limit,
-      price,
       brand,
-      contextSearch.search
+      category,
+      contextSearch.search,
+      price
     );
     setProductList(data);
     setPage(pagination.currentPage);
@@ -71,13 +74,26 @@ const Products = () => {
 
   const handleTabClick = (e) => {
     setCurrentTab(e.target.id);
-    console.log(e.target.value);
     setPrice(e.target.value);
   };
 
   const handleChangeLimit = (e) => {
     setPage(1);
     setLimit(e.target.value);
+  };
+
+  const handleCategory = (e) => {
+    setCurrentTab("");
+    setPage(1);
+    setPrice("");
+    setCategory(e.target.value);
+  };
+
+  const handleChangeBrand = (e) => {
+    setCurrentTab("");
+    setPage(1);
+    setPrice("");
+    setBrand(e.target.value);
   };
 
   return (
@@ -97,20 +113,47 @@ const Products = () => {
               <div className="sidebar-content d-none d-lg-block ">
                 <div className="sidebar-product-category px-3">
                   <h5 className="sidebar-heading py-3">DANH MỤC</h5>
-                  <p className="sidebar-category-item">Giày Nam</p>
-                  <p className="sidebar-category-item">Giày Nữ</p>
-                  <p className="sidebar-category-item">Giày Trẻ Em</p>
-                  <p className="sidebar-category-item">Giày Thể Thao</p>
-                  <p className="sidebar-category-item">Giày Tây</p>
+                  <button
+                    type="button"
+                    value={1}
+                    onClick={(e) => handleCategory(e)}
+                    className="sidebar-category-item"
+                  >
+                    Giày Nam
+                  </button>
+                  <button
+                    value={2}
+                    onClick={(e) => handleCategory(e)}
+                    className="sidebar-category-item"
+                  >
+                    Giày Nữ
+                  </button>
+                  <button
+                    value={3}
+                    onClick={(e) => handleCategory(e)}
+                    className="sidebar-category-item"
+                  >
+                    Giày Trẻ Em
+                  </button>
+                  <button className="sidebar-category-item">Giày Thể Thao</button>
+                  <button className="sidebar-category-item">Giày Tây</button>
                 </div>
                 <div className="sidebar-product-brand px-3">
                   <h5 className="sidebar-heading py-3">THƯƠNG HIỆU</h5>
-                  <p onClick={() => setBrand("NIKE")} className="sidebar-brand-item">
+                  <button
+                    value="NIKE"
+                    onClick={(e) => handleChangeBrand(e)}
+                    className="sidebar-brand-item"
+                  >
                     Nike
-                  </p>
-                  <p onClick={() => setBrand("ADIDAS")} className="sidebar-brand-item">
+                  </button>
+                  <button
+                    value="ADIDAS"
+                    onClick={(e) => handleChangeBrand(e)}
+                    className="sidebar-brand-item"
+                  >
                     Adidas
-                  </p>
+                  </button>
                   <p className="sidebar-brand-item">Converse</p>
                   <p className="sidebar-brand-item">New Balance</p>
                 </div>

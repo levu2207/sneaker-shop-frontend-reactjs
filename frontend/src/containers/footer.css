@@ -9,3 +9,11 @@
 .logo-footer {
   height: 26px;
 }
+
+/* resonsive footer */
+
+@media (max-width: 576px) {
+  .footer-content {
+    justify-content: center;
+  }
+}

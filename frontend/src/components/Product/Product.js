@@ -32,8 +32,9 @@ const Product = ({ product }) => {
 
         <div className="product-img">
           <img src={product.imageArr[0]} alt={product.name}></img>
-          {/* <button className="product-quick-view">Xem nhanh</button> */}
-          <CardModal />
+
+          {/* Product card modal */}
+          <CardModal product={product} />
         </div>
 
         <div className="mb-2 d-flex justify-content-between">
