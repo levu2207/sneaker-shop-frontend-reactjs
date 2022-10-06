@@ -45,6 +45,11 @@
     color: #6d6d6d;
 }
 
+.text-card-price, .cart-money {
+    float: right;
+    top: 0;
+    right: 0;
+}
 
 
 .sub-out-product5 {
@@ -89,4 +94,13 @@
     color: #7e7e7e;
     font-size: 15px;
     line-height: 23px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) { 
+    .text-card-cart {
+        font-size: 16px;
+    }
 }
