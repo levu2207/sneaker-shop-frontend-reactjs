@@ -16,11 +16,15 @@ const Products = () => {
   const [loading, setLoading] = useState(true);
   const [productList, setProductList] = useState([]);
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(4);
+  const [limit, setLimit] = useState(8);
   const [price, setPrice] = useState("");
   const [brand, setBrand] = useState("");
   const [pagingItems, setPagingItems] = useState([]);
   const [category, setCategory] = useState("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     loadData();

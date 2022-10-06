@@ -4,45 +4,50 @@ import { useDispatch } from "react-redux";
 import convertToVnd from "../../helpers/convertToVnd";
 
 const OrderDetails = ({ item }) => {
-  console.log(item);
-  // const [quantity, setQuantity] = useState(item.quantity);
-  let quantity = item.quantity;
+  const [quantity, setQuantity] = useState(item.quantity);
   const dispatch = useDispatch();
 
   const handleRemoveItem = (e) => {
     e.preventDefault();
     const action = removeFromCart({
-      idNeedToRemove: item.id,
-      sizeNeedToRemove: item.sizeSelect,
+      idRemove: item.id,
+      sizeRemove: item.sizeSelect,
+    });
+
+    dispatch(action);
+  };
+
+  const updateQuantity = (value) => {
+    setQuantity(value);
+
+    const action = setQuantityItem({
+      id: item.id,
+      sizeSelect: item.sizeSelect,
+      quantity: value,
     });
 
     dispatch(action);
   };
 
   const handleIncreaseQuantity = (e) => {
-    // setQuantity((preQuantity) => preQuantity + 1);
-    quantity = quantity + 1;
-
-    const action = setQuantityItem({
-      id: item.id,
-      sizeSelect: item.sizeSelect,
-      quantity: quantity,
-    });
-
-    dispatch(action);
+    updateQuantity(quantity + 1);
   };
 
   const handleDecreaseQuantity = (e) => {
-    // setQuantity((preQuantity) => preQuantity - 1);
-    quantity = quantity - 1;
+    updateQuantity(quantity - 1);
+  };
 
-    const action = setQuantityItem({
-      id: item.id,
-      sizeSelect: item.sizeSelect,
-      quantity: quantity,
-    });
+  const handleChangeQuantity = (e) => {
+    // const temp = Number(e.target.value).valueOf();
+    updateQuantity(Number(e.target.value).valueOf());
 
-    dispatch(action);
+    // setQuantity(temp);
+    // const action = setQuantityItem({
+    //   id: item.id,
+    //   sizeSelect: item.sizeSelect,
+    //   quantity: temp,
+    // });
+    // dispatch(action);
   };
 
   return (
@@ -54,7 +59,7 @@ const OrderDetails = ({ item }) => {
               <img className="img-cart1" src={item.product.imageArr[1]} alt="Fail" />
             </div>
             <div className="col-lg-7 col-md-7 col-12 display-option justify-content-center">
-              <p className="text-list-product m-0">{item.name}</p>
+              <p className="text-list-product m-0">{item.product.name}</p>
             </div>
           </div>
         </div>
@@ -78,7 +83,7 @@ const OrderDetails = ({ item }) => {
               <i className="bi bi-dash"></i>
             </button>
             <input
-              onChange={(e) => console.log(quantity)}
+              onChange={(e) => handleChangeQuantity(e)}
               value={quantity}
               className="product-quantity-value"
               type="text"

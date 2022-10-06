@@ -6,7 +6,7 @@ const ProductList = ({ data }) => {
     <div>
       <div className="row justify-content-center">
         {data.map((product) => (
-          <div key={product.id} className="col-10 col-sm-6 col-lg-4 col-xl-3">
+          <div key={product.id} className="col-10 col-sm-6 col-lg-4 col-xl-3 px-4">
             <Product product={product} />
           </div>
         ))}

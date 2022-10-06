@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Cart.css";
 import Hero from "./../../components/Hero/Hero";
 import heroCart from "../../Assets/image/hero-product.jpg";
@@ -15,6 +15,10 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartTotal = useSelector(cartTotalSelector);
   console.log(cartItems);
+
+  useEffect(() => {
+    window.scrollTo(1, 1);
+  }, []);
 
   return (
     <>

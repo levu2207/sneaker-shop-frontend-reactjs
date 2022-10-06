@@ -15,7 +15,7 @@ const cartSlice = createSlice({
     },
 
     addToCart(state, action) {
-      // newItem = {id, product, quantity}
+      // newItem = {id, product, salePrice, sizeSelect quantity}
       const newItem = action.payload;
       const index = state.cartItems.findIndex(
         (item) => item.id === newItem.id && item.sizeSelect === newItem.sizeSelect
@@ -41,10 +41,14 @@ const cartSlice = createSlice({
     },
 
     removeFromCart(state, action) {
-      const { idNeedToRemove, sizeNeedToRemove } = action.payload;
-      state.cartItems = state.cartItems.filter(
-        (item) => item.id !== idNeedToRemove && item.sizeSelect !== sizeNeedToRemove
-      );
+      const { idRemove, sizeRemove } = action.payload;
+      state.cartItems = state.cartItems.filter((item) => {
+        if (item.id !== idRemove) return item;
+        else {
+          if (item.sizeSelect === sizeRemove) return null;
+          else return item;
+        }
+      });
     },
   },
 });
