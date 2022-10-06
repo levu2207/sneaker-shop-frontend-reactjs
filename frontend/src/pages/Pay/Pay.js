@@ -120,7 +120,7 @@ const Pay = () => {
                             <div className="col-lg-12 mt-4">
                             </div>
                             <div className="col-lg-12">
-                                <div className="col-lg-12 col-md-6 pe-0">
+                                <div className="col-lg-12 col-md-12 pe-0">
                                   <p className="text-card-cart">
                                     Mã khuyến mãi :
                                   <span className="text-card-price text-end">0đ</span>
@@ -128,7 +128,7 @@ const Pay = () => {
                                 </div>
                             </div>
                             <div className="col-lg-12">
-                                <div className="col-lg-12 col-md-6">
+                                <div className="col-lg-12 col-md-12">
                                   <p className="text-card-cart m-0">
                                     Tổng cộng :
                                   <span className="cart-money card-money-end m-0 text-end">

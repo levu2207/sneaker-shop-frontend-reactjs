@@ -104,3 +104,13 @@
         font-size: 16px;
     }
 }
+
+@media (min-width: 768px) and (max-width: 1180px) {
+    .text-card-cart {
+        font-size: 16px;
+    }
+
+    .cart-money {
+        font-size: 16px;
+    }
+}
