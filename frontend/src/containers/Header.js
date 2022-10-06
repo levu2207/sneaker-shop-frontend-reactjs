@@ -112,7 +112,7 @@ const Header = () => {
                 {/* Cart */}
                 <div onClick={() => navigate("/cart")} className="user-cart">
                   <i className="cart bi bi-bag-check-fill ms-2" title="Giỏ hàng của bạn"></i>
-                  {cartItemsCount && <span className="cart-amount">{cartItemsCount}</span>}
+                  {cartItemsCount ? <span className="cart-amount">{cartItemsCount}</span> : ""}
                 </div>
               </div>
             </div>
