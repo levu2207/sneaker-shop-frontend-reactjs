@@ -120,30 +120,22 @@ const Pay = () => {
                             <div className="col-lg-12 mt-4">
                             </div>
                             <div className="col-lg-12">
-                              <div className="row">
-                                <div className="col-lg-6 col-md-6 pe-0">
+                                <div className="col-lg-12 col-md-6 pe-0">
                                   <p className="text-card-cart">
                                     Mã khuyến mãi :
+                                  <span className="text-card-price text-end">0đ</span>
                                   </p>
                                 </div>
-                                <div className="col-lg-6 col-md-6 ">
-                                  <p className="text-card-cart text-end">0đ</p>
-                                </div>
-                              </div>
                             </div>
                             <div className="col-lg-12">
-                              <div className="row">
-                                <div className="col-lg-6 col-md-6">
+                                <div className="col-lg-12 col-md-6">
                                   <p className="text-card-cart m-0">
                                     Tổng cộng :
-                                  </p>
-                                </div>
-                                <div className="col-lg-6 col-md-6">
-                                  <p className="cart-money card-money-end m-0 text-end">
+                                  <span className="cart-money card-money-end m-0 text-end">
                                     1.755.000đ
+                                  </span>
                                   </p>
                                 </div>
-                              </div>
                             </div>
                             <div className="col-lg-12 mt-5 d-flex justify-content-center align-items-center">
                               <CustomizeButton
