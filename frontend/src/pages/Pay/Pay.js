@@ -66,7 +66,6 @@ const Pay = () => {
   };
 
   const handleFormSubmit = async (values) => {
-    console.log("formValues: ", values);
     if (isLoggedIn) {
       // save order to database
       const newOrder = await orderService.createOrder({

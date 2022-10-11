@@ -2,19 +2,21 @@ import React, { useState } from "react";
 import { removeFromCart, setQuantityItem } from "../../redux/reducers/cartSlice";
 import { useDispatch } from "react-redux";
 import convertToVnd from "../../helpers/convertToVnd";
+import ConfirmModal from "../../components/ConfirmModal/ConfirmModal";
 
 const OrderDetails = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
   const dispatch = useDispatch();
 
-  const handleRemoveItem = (e) => {
-    e.preventDefault();
-    const action = removeFromCart({
-      idRemove: item.id,
-      sizeRemove: item.sizeSelect,
-    });
+  const handleRemoveItem = (value) => {
+    if (value === "confirm") {
+      const action = removeFromCart({
+        idRemove: item.id,
+        sizeRemove: item.sizeSelect,
+      });
 
-    dispatch(action);
+      dispatch(action);
+    }
   };
 
   const updateQuantity = (value) => {
@@ -100,9 +102,14 @@ const OrderDetails = ({ item }) => {
           </p>
         </div>
         <div className="col-lg-1 col-md-1 d-flex justify-content-end align-items-center">
-          <a href="/">
+          {/* <a href="/">
             <i onClick={(e) => handleRemoveItem(e)} className="bi bi-x close-cart" />
-          </a>
+          </a> */}
+
+          <ConfirmModal
+            title="Bạn chắc chắn muốn xóa sản phẩm khỏi giỏ hàng?"
+            onClick={(e) => handleRemoveItem(e)}
+          />
         </div>
       </div>
     </div>
