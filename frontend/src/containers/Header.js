@@ -4,8 +4,10 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../Assets/image/logo.png";
 import MobileMenu from "../components/MobileMenu/MobileMenu";
 import { SearchContext } from "../components/Product/SearchContext";
+import MiniCart from "../pages/Cart/MiniCart";
 import { cartItemsCountSelector } from "../pages/Cart/selectors";
 import { logout } from "../redux/reducers/authSlice";
+import { clearOrder } from "../redux/reducers/orderSlice";
 import FavoriteList from "./../components/FavoriteList/FavoriteList";
 import "./header.css";
 
@@ -16,6 +18,11 @@ const Header = () => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const userInfo = useSelector((state) => state.auth.userInfo);
   const cartItemsCount = useSelector(cartItemsCountSelector);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    dispatch(clearOrder());
+  };
 
   return (
     <>
@@ -76,11 +83,11 @@ const Header = () => {
               {/* Login */}
               {isLoggedIn ? (
                 <div className="d-flex justify-content-center my-2">
-                  <p className="user-login me-1" onClick={(e) => navigate("/profile")}>
+                  <p className="user-login me-1" onClick={(e) => navigate("/profile/account")}>
                     {userInfo.fullName}
                   </p>
                   <span> / </span>
-                  <p className="user-register ms-1" onClick={() => dispatch(logout())}>
+                  <p className="user-register ms-1" onClick={() => handleLogout()}>
                     Đăng xuất
                   </p>
                 </div>
@@ -113,6 +120,10 @@ const Header = () => {
                 <div onClick={() => navigate("/cart")} className="user-cart">
                   <i className="cart bi bi-bag-check-fill ms-2" title="Giỏ hàng của bạn"></i>
                   {cartItemsCount ? <span className="cart-amount">{cartItemsCount}</span> : ""}
+                  {/* hover show */}
+                  <div className="user-mini-cart"></div>
+                  {/* mini cart */}
+                  <MiniCart />
                 </div>
               </div>
             </div>
@@ -153,7 +164,7 @@ const Header = () => {
 
             {isLoggedIn ? (
               <div className="mobile-menu-signin">
-                <p className="me-1" onClick={() => navigate("./profile")}>
+                <p className="me-1" onClick={() => navigate("/profile/account")}>
                   {userInfo.fullName}
                 </p>
                 <span>/</span>

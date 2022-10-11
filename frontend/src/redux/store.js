@@ -5,9 +5,13 @@ import { createStateSyncMiddleware, initMessageListener } from "redux-state-sync
 import thunk from "redux-thunk";
 import authReducer from "./reducers/authSlice";
 import cartReducer from "./reducers/cartSlice";
+import orderReducer from "./reducers/orderSlice";
+import productReducer from "./reducers/productSlice";
 
 const authPersistConfig = { key: "auth", storage };
 const cartPersistConfig = { key: "cart", storage };
+const orderPersistConfig = { key: "order", storage };
+const productPersistConfig = { key: "product", storage };
 
 const syncConfig = {
   blacklist: ["persist/PERSIST"],
@@ -16,6 +20,8 @@ const syncConfig = {
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   cart: persistReducer(cartPersistConfig, cartReducer),
+  order: persistReducer(orderPersistConfig, orderReducer),
+  product: persistReducer(productPersistConfig, productReducer),
 });
 const store = configureStore({
   reducer: rootReducer,

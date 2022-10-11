@@ -4,10 +4,10 @@ import ProductSize from "../Product/ProductSize";
 
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import convertToVnd from "../../helpers/convertToVnd";
 import { addToCart } from "../../redux/reducers/cartSlice";
 import AddToCartForm from "../Product/AddToCartForm";
 import "./cardModal.css";
-import convertToVnd from "../../helpers/convertToVnd";
 
 const CardModal = ({ product }) => {
   const dispatch = useDispatch();

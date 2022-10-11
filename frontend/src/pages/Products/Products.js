@@ -23,7 +23,7 @@ const Products = () => {
   const [category, setCategory] = useState("");
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 400);
   }, []);
 
   useEffect(() => {

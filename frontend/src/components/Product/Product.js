@@ -44,7 +44,7 @@ const Product = ({ product }) => {
         </div>
 
         <div className="product-footer ">
-          <div className="product-like col-4 d-flex justify-content-center align-items-center">
+          <div className="product-like d-flex justify-content-center align-items-center">
             <i className="product-like-icon fs-5 bi bi-heart-fill"></i>
           </div>
 

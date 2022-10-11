@@ -26,6 +26,10 @@ export const authSlice = createSlice({
       state.userInfo = {};
     },
 
+    updateUserInfo: (state, action) => {
+      state.userInfo = action.payload;
+    },
+
     registerStart: (state) => {
       state.register.isFetching = true;
     },
@@ -42,5 +46,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { login, logout, registerStart, registerSuccess, registerFailed } = authSlice.actions;
+export const { login, logout, updateUserInfo, registerStart, registerSuccess, registerFailed } =
+  authSlice.actions;
 export default authSlice.reducer;

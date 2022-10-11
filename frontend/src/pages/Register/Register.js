@@ -41,16 +41,16 @@ const Register = () => {
         <div className="bg-white rounded-4 my-5 px-5 py-5">
           <form className="mb-3" onSubmit={(e) => handleRegister(e)}>
             <div className="p-2 w-100 d-flex justify-content-around align-items-center">
-              <h2 className="mode-register mb-4 fw-bold">Register</h2>
+              <h2 className="mode-register mb-4 fw-bold">Đăng ký</h2>
             </div>
 
             <div className="w-100">
               <Input onChange={(e) => handleChange(e)} name="fullName" type="text" id="fullName">
-                Your Full Name
+                Nhập tên đầy đủ
               </Input>
 
               <Input onChange={(e) => handleChange(e)} name="email" type="email" id="email">
-                Your Email
+                Nhập email của bạn
               </Input>
 
               <Input
@@ -59,15 +59,15 @@ const Register = () => {
                 type="password"
                 id="password"
               >
-                Your Password
+                Nhập mật khẩu
               </Input>
 
               <Input onChange={(e) => handleChange(e)} name="phone" type="phone" id="phone">
-                Your Phone Number
+                Nhập số điện thoại
               </Input>
 
               <Input onChange={(e) => handleChange(e)} name="address" type="text" id="address">
-                Your Address
+                Nhập địa chỉ
               </Input>
             </div>
 
@@ -77,7 +77,7 @@ const Register = () => {
                 className="w-100 primary-btn rounded-btn-1 mb-3"
                 onClick={(e) => handleRegister(e)}
               >
-                Register
+                Đăng ký
               </button>
 
               <button
@@ -85,7 +85,7 @@ const Register = () => {
                 className="w-100 secondary-btn rounded-btn-1"
                 onClick={(e) => navigate("/home")}
               >
-                Cancel
+                Hủy
               </button>
             </div>
           </form>

@@ -1,10 +1,15 @@
 import axios from "axios";
+import store from "../redux/store";
 
 const url = {
   baseUrl: "http://localhost:8080/api",
   login: "/users/login",
   register: "/users/register",
   products: "/products",
+  users: "/users",
+  orders: "/orders",
+  details: "/orders/details",
+  orderList: "/orders/users",
 };
 
 const instance = axios.create({
@@ -16,7 +21,15 @@ const instance = axios.create({
 });
 
 // Add a request interceptor
-instance.interceptors.request.use((request) => request);
+instance.interceptors.request.use((request) => {
+  const state = store.getState();
+
+  if (state.auth.token) {
+    request.headers.token = `${state.auth.token}`;
+  }
+
+  return request;
+});
 
 // Add a response interceptor
 instance.interceptors.response.use(

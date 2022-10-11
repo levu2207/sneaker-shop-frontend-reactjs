@@ -9,16 +9,29 @@ import { useSelector } from "react-redux";
 import Order from "./Order";
 import { cartTotalSelector } from "./selectors";
 import convertToVnd from "../../helpers/convertToVnd";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartTotal = useSelector(cartTotalSelector);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
   console.log(cartItems);
 
   useEffect(() => {
-    window.scrollTo(1, 1);
+    window.scrollTo(0, 400);
   }, []);
+
+  const handlePay = (e) => {
+    if (isLoggedIn) {
+      if (cartItems.length === 0) {
+        toast.warn("Giỏ hàng trống");
+      } else navigate("/pay");
+    } else {
+      toast.warn("Xin đăng nhập tài khoản của bạn");
+    }
+  };
 
   return (
     <>
@@ -57,7 +70,7 @@ const Cart = () => {
 
           <div className="col-lg-12 mt-3">
             <div className="total-section row">
-              <div className="col-lg-7 col-md-6 col-12 p-5 note-total">
+              <div className="col-lg-7 col-md-6 col-12 p-4 note-total">
                 <CustomizeButton
                   onClick={() => navigate("/products")}
                   className="secondary-btn sub-out-product1 d-flex justify-content-center align-items-center text-center "
@@ -86,10 +99,10 @@ const Cart = () => {
                     kiểm tra tin nhắn hoặc Email để nhận mã voucher.
                   </p>
                 </div>
-                <div className="col-lg-6 pt-5">
+                <div className="col-lg-6">
                   <form className="form-sale">
                     <p className="text-header-sale pb-3">Khuyễn mãi</p>
-                    <div className="tamtinh d-flex justify-content-between align-items-center">
+                    <div className="tamtinh d-flex justify-content-between align-items-center pt-2">
                       <p className="money-tam">Tạm tính :</p>
                       <p className="money-info">{convertToVnd(cartTotal)}</p>
                     </div>
@@ -108,7 +121,7 @@ const Cart = () => {
                   <div className="row">
                     <div className="col-lg-12 mr-btn d-flex justify-content-center align-items-center">
                       <CustomizeButton
-                        onClick={() => navigate("/pay")}
+                        onClick={(e) => handlePay(e)}
                         className="secondary-btn sub-out-product d-flex justify-content-center align-items-center text-center "
                       >
                         Thanh toán

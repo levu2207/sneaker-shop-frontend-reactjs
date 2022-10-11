@@ -28,6 +28,13 @@ textarea,
 select {
   outline: none;
 }
+
+button[disabled] {
+  background-color: #ddd;
+  border: none;
+  color: var(--text-color);
+}
+
 p,
 h1,
 h2,

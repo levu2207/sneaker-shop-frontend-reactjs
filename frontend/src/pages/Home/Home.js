@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import imgNews1 from "../../Assets/image/news/news1.jpg";
 import imgNews2 from "../../Assets/image/news/news2.jpg";
@@ -8,6 +9,7 @@ import CustomizeButton from "../../components/Buttons/CustomizeButton";
 import Loading from "../../components/Loading/Loading";
 import ProductList from "../../components/Product/ProductList";
 import SliderNike from "../../components/Slider/SliderNike";
+import { loadproductList } from "../../redux/reducers/productSlice";
 import productService from "../../services/productService";
 import "./home.css";
 
@@ -15,12 +17,18 @@ const Home = () => {
   const navigate = useNavigate();
   const [productList, setProductList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
       try {
         const { data } = await productService.list();
         setProductList(data);
+
+        const products = await productService.getAll();
+
+        // save product list to productSlice
+        dispatch(loadproductList(products.data));
       } catch (error) {
         console.log("Failed to get product list", error.message);
       }

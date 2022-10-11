@@ -43,12 +43,12 @@ const Login = () => {
         <div className=" bg-white rounded-4 my-5 px-5 py-5">
           <form className="mb-3" onSubmit={(e) => handleLogin(e)}>
             <div className="p-2 w-100 d-flex justify-content-around align-items-center">
-              <h2 className="mode-login mb-4 fw-bold">Login</h2>
+              <h2 className="mode-login mb-4 fw-bold">Đăng nhập</h2>
             </div>
 
             <div className="w-100">
               <Input name="email" type="email" id="email" onChange={(e) => handleChange(e)}>
-                Your Email
+                Nhập mail của bạn
               </Input>
 
               <Input
@@ -57,12 +57,12 @@ const Login = () => {
                 id="password"
                 onChange={(e) => handleChange(e)}
               >
-                Your Password
+                Nhập password
               </Input>
             </div>
 
             <Link to="/reset-password" className="d-flex justify-content-end">
-              Forgot password?
+              Quên mật khẩu
             </Link>
 
             <div className="d-flex flex-column justify-content-center align-items-center my-4">
@@ -71,7 +71,7 @@ const Login = () => {
                 className="w-100 primary-btn rounded-btn-1 mb-3"
                 onClick={(e) => handleLogin(e)}
               >
-                Login
+                Đăng nhập
               </button>
 
               <button
@@ -79,14 +79,14 @@ const Login = () => {
                 className="w-100 secondary-btn rounded-btn-1"
                 onClick={(e) => navigate("/home")}
               >
-                Cancel
+                Hủy
               </button>
             </div>
           </form>
 
           {/* login link google */}
           <div className="d-flex flex-column justify-content-center align-items-center mt-5">
-            <p>Or Login Using</p>
+            <p>hoặc đăng nhập với</p>
             <div className="d-flex justify-content-center align-items-center mt-3 mb-5">
               <Link to="/" className="login-social-item social-facebook">
                 <i className="bi bi-facebook"></i>
@@ -101,9 +101,9 @@ const Login = () => {
               </Link>
             </div>
 
-            <p className="fs-6">Or Register Using</p>
+            <p className="fs-6">Nếu bạn chưa có tài khoản</p>
             <p className="mode-tranfer mt-3 fs-5" onClick={(e) => navigate("/register")}>
-              Register
+              Đăng ký
             </p>
           </div>
         </div>

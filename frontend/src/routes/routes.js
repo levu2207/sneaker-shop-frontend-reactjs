@@ -1,4 +1,3 @@
-import Profile from "../pages/Profile/Profile";
 import About from "./../pages/About/About";
 import Cart from "./../pages/Cart/Cart";
 import Contact from "./../pages/Contact/Contact";
@@ -12,7 +11,7 @@ import Products from "./../pages/Products/Products";
 const routes = [
   { path: "", component: <Home /> },
   { path: "/home", component: <Home /> },
-  { path: "/profile", component: <Profile /> },
+  // { path: "/profile", component: <Profile /> },
   { path: "/products", component: <Products /> },
   { path: "/products/:id", component: <ProductDetail /> },
   { path: "/news", component: <News /> },

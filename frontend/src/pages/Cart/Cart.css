@@ -38,7 +38,6 @@
   color: #6d6d6d;
   line-height: 30px;
   font-weight: 700;
-  text-align: center;
 }
 
 .cart-details {
@@ -102,7 +101,6 @@
 
 .form-sale {
   width: 100%;
-  padding: 20px;
 }
 
 .text-header-sale {
@@ -122,10 +120,10 @@
 }
 
 .money-info {
-  font-size: 17px;
+  font-size: 20px;
   color: #e43711;
   line-height: 25px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .btn-sale {
@@ -215,6 +213,77 @@
     font-size: 10px;
     font-weight: 700;
   }
+}
+
+/* mini cart */
+.avtive-mini-cart {
+  display: block;
+}
+
+.mini-cart {
+  display: none;
+  min-height: 200px;
+  /* max-height: 400px; */
+  position: absolute;
+  background-color: #fff;
+  right: -20px;
+  top: 60px;
+  min-width: 300px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 6px 6px 6px -6px #333;
+}
+
+.mini-cart::after {
+  content: "";
+  position: absolute;
+  border-width: 20px 100px;
+  border-style: solid;
+  border-color: transparent;
+  right: 16px;
+  top: -36px;
+}
+
+.mini-cart::before {
+  content: "";
+  position: absolute;
+  border-width: 20px 30px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+  right: 16px;
+  top: -36px;
+}
+
+.mini-cart-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.mini-cart-item-content button {
+  border: none;
+  padding: 0 4px;
+  border-radius: 4px;
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+  font-size: 12px;
+}
+
+.mini-cart-item-name {
+  font-weight: 500;
+}
+
+.mini-cart-item-price {
+  color: var(--secondary-color);
+}
+
+.mini-cart-item-image img {
+  height: 100px;
+}
+
+.mini-cart-item-quantity {
+  padding: 0 12px;
 }
 
 @media (min-width: 768px) and (max-width: 1180px) {

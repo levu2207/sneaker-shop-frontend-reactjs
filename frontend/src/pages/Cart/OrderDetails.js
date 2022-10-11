@@ -58,7 +58,7 @@ const OrderDetails = ({ item }) => {
             <div className="col-lg-5 col-md-6 col-12 col-10 display-option">
               <img className="img-cart1" src={item.product.imageArr[1]} alt="Fail" />
             </div>
-            <div className="col-lg-7 col-md-7 col-12 display-option justify-content-center">
+            <div className="col-lg-7 col-md-7 col-12 display-option justify-content-start">
               <p className="text-list-product m-0">{item.product.name}</p>
             </div>
           </div>

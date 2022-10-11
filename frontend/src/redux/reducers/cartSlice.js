@@ -7,13 +7,6 @@ const cartSlice = createSlice({
     cartItems: [],
   },
   reducers: {
-    showMiniCart(state) {
-      state.showMiniCart = true;
-    },
-    hideMiniCart(state) {
-      state.hideMiniCart = false;
-    },
-
     addToCart(state, action) {
       // newItem = {id, product, salePrice, sizeSelect quantity}
       const newItem = action.payload;
@@ -50,9 +43,12 @@ const cartSlice = createSlice({
         }
       });
     },
+
+    removeCartItems(state) {
+      state.cartItems.length = 0;
+    },
   },
 });
 
-export const { showMiniCart, hideMiniCart, addToCart, setQuantityItem, removeFromCart } =
-  cartSlice.actions;
+export const { addToCart, setQuantityItem, removeFromCart, removeCartItems } = cartSlice.actions;
 export default cartSlice.reducer;

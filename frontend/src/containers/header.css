@@ -83,6 +83,10 @@
   position: relative;
 }
 
+.user-cart:hover .mini-cart {
+  display: block;
+}
+
 .cart-amount {
   position: absolute;
   top: 0;

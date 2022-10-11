@@ -2,6 +2,8 @@ import api from "./api";
 
 const list = () => api.get(api.url.products, { params: { page: 1, limit: 8 } });
 
+const getAll = () => api.get(api.url.products);
+
 const getPaging = (page, limit, brand, category, search, price) => {
   const queryString = `page=${page}&limit=${limit}&brand=${brand}&category=${category}&search=${search}&price=${price}`;
   return api.get(`${api.url.products}?${queryString}`);
@@ -16,6 +18,7 @@ const update = (id, data) => api.put(`${api.url.products}/${id}`, data);
 const remove = (id) => api.delete(`${api.url.products}/${id}`);
 
 const productService = {
+  getAll,
   list,
   getPaging,
   get,
