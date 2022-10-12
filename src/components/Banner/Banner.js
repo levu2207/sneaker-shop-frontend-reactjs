@@ -16,7 +16,7 @@ const Banner = () => {
           <div className="slider-item slide-item-1">
             <div className="slider-content container">
               <div className="row w-100 m-0">
-                <div className=" col-lg-12 h-100 d-flex justify-content-center align-items-center flex-column">
+                <div className=" col-lg-12 h-100 d-flex justify-content-center align-items-center flex-column mt-5">
                   <h1 className="heading-slide m-0 text-center w-100">Nike</h1>
                   <h2 className="sub-heading-slide m-0 mb-4 text-center w-100">AIR FORCE</h2>
                   <h2 className="title-slide mb-2 text-center w-100">Air Force 1 Ultra Flyknit</h2>
@@ -43,7 +43,7 @@ const Banner = () => {
           <div className="slider-item slide-item-2">
             <div className="slider-content container">
               <div className="row w-100 m-0">
-                <div className=" col-lg-12 h-100 d-flex justify-content-center align-items-center flex-column">
+                <div className=" col-lg-12 h-100 d-flex justify-content-center align-items-center flex-column mt-5">
                   <h1 className="heading-slide m-0 text-center w-100">ADIDAS</h1>
                   <h2 className="sub-heading-slide m-0 mb-4 text-center w-100">MAN'S RUNNING</h2>
                   <h2 className="title-slide mb-2 text-center w-100">ADIZERO ADIOS PRO 2.0</h2>
@@ -69,7 +69,7 @@ const Banner = () => {
           <div className="slider-item slide-item-3">
             <div className="slider-content container">
               <div className="row w-100 m-0">
-                <div className=" col-lg-12 h-100 d-flex justify-content-center align-items-center flex-column">
+                <div className=" col-lg-12 h-100 d-flex justify-content-center align-items-center flex-column mt-5">
                   <h1 className="heading-slide m-0 text-center w-100">JORDAN</h1>
                   <h2 className="sub-heading-slide m-0 mb-4 text-center w-100">AIR PRO 23</h2>
                   <h2 className="title-slide mb-2 text-center w-100">Air Retro High OG Bred</h2>

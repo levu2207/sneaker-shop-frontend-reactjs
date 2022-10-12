@@ -25,29 +25,31 @@ const Profile = () => {
     <Container>
       <div className="user-profile">
         <Row className="pt-5">
-          <Col lg={2} className="bg-white py-3">
-            <div className="user-profile-name">
-              <img src={userInfo.avatar} alt="failed" />
-              <div>
-                <p className="pe-4">{userInfo.fullName}</p>
+          <Col xl={2} className="wrapper-user-info py-3 ">
+            <div className="bg-white">
+              <div className="user-profile-name pt-3">
+                <img src={userInfo.avatar} alt="failed" />
+                <div>
+                  <p className="pe-4">{userInfo.fullName}</p>
+                </div>
+              </div>
+
+              <div className="d-flex py-3">
+                <i className="bi bi-person-circle ps-3"></i>
+                <NavLink to="account" className="ps-3">
+                  Tài khoản của tôi
+                </NavLink>
+              </div>
+
+              <div className="d-flex pb-3">
+                <i className="bi bi-receipt ps-3"></i>
+                <NavLink to="orders/all" className="ps-3">
+                  Đơn hàng của tôi
+                </NavLink>
               </div>
             </div>
-
-            <div className="d-flex py-3">
-              <i className="bi bi-person-circle ps-3"></i>
-              <NavLink to="account" className="ps-3">
-                Tài khoản của tôi
-              </NavLink>
-            </div>
-
-            <div className="d-flex pb-3">
-              <i className="bi bi-receipt ps-3"></i>
-              <NavLink to="orders/all" className="ps-3">
-                Đơn hàng của tôi
-              </NavLink>
-            </div>
           </Col>
-          <Col lg={10} className="">
+          <Col xl={10} className="">
             <Outlet />
           </Col>
         </Row>

@@ -113,8 +113,8 @@ const Products = () => {
           <Title page="Sneaker" />
 
           <div className="product-content col-12 ">
-            <div className="product-sidebar d-none d-lg-block">
-              <div className="sidebar-content d-none d-lg-block ">
+            <div className="product-sidebar d-lg-block">
+              <div className="sidebar-content  d-lg-block ">
                 <div className="sidebar-product-category px-3">
                   <h5 className="sidebar-heading py-3">DANH MỤC</h5>
                   <button
@@ -140,7 +140,6 @@ const Products = () => {
                     Giày Trẻ Em
                   </button>
                   <button className="sidebar-category-item">Giày Thể Thao</button>
-                  <button className="sidebar-category-item">Giày Tây</button>
                 </div>
                 <div className="sidebar-product-brand px-3">
                   <h5 className="sidebar-heading py-3">THƯƠNG HIỆU</h5>
@@ -158,21 +157,35 @@ const Products = () => {
                   >
                     Adidas
                   </button>
-                  <p className="sidebar-brand-item">Converse</p>
-                  <p className="sidebar-brand-item">New Balance</p>
+                  <button
+                    value="CONVERSE"
+                    onClick={(e) => handleChangeBrand(e)}
+                    className="sidebar-brand-item"
+                  >
+                    Converse
+                  </button>
+                  <button
+                    value="NEW BALANCE"
+                    onClick={(e) => handleChangeBrand(e)}
+                    className="sidebar-brand-item"
+                  >
+                    New Balance
+                  </button>
                 </div>
               </div>
             </div>
+
             <div className="list-product-main">
               {/* Product sorter */}
-              <div className="product-sorter">
-                <Tabs onClick={(e) => handleTabClick(e)} currentTab={currentTab} />
+              <div className="product-sorter row mx-3">
+                <div className="col-12 col-lg-9">
+                  <Tabs onClick={(e) => handleTabClick(e)} currentTab={currentTab} />
+                </div>
 
                 {/* paging with page size */}
-                <div className="paging-limit">
+                <div className="paging-limit col-12 col-lg-3">
                   <label>Số sản phẩm hiển thị:</label>
                   <select value={limit} onChange={handleChangeLimit} className="">
-                    <option value="0">{"---"}</option>
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="50">50</option>

@@ -6,7 +6,7 @@ const InputFormik = (props) => {
   const inputClass = `form-control ${className} ${errMessage ? "is-invalid" : "mb-4"}`;
   return (
     <>
-      {label ? <label htmlFor="">{label}</label> : ""}
+      {label ? <label className="me-3">{label}</label> : ""}
       <div>
         <input
           name={name}

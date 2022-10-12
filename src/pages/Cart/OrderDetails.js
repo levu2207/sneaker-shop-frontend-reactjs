@@ -102,10 +102,6 @@ const OrderDetails = ({ item }) => {
           </p>
         </div>
         <div className="col-lg-1 col-md-1 d-flex justify-content-end align-items-center">
-          {/* <a href="/">
-            <i onClick={(e) => handleRemoveItem(e)} className="bi bi-x close-cart" />
-          </a> */}
-
           <ConfirmModal
             title="Bạn chắc chắn muốn xóa sản phẩm khỏi giỏ hàng?"
             onClick={(e) => handleRemoveItem(e)}

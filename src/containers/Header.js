@@ -27,8 +27,8 @@ const Header = () => {
   return (
     <>
       <header className="header d-flex justify-content-center align-items-center">
-        <div className="container">
-          <div className="header-wrapper row ">
+        <div className="header-wrapper container">
+          <div className="row align-items-center">
             <div className="logo col-sm-10 col-md-2 col-4">
               <Link to="/home">
                 <img className="header-logo" src={logo} alt="logo" />
@@ -86,7 +86,7 @@ const Header = () => {
                   <p className="user-login me-1" onClick={(e) => navigate("/profile/account")}>
                     {userInfo.fullName}
                   </p>
-                  <span> / </span>
+                  <span className="d-none d-md-block"> / </span>
                   <p className="user-register ms-1" onClick={() => handleLogout()}>
                     Đăng xuất
                   </p>
@@ -96,7 +96,7 @@ const Header = () => {
                   <p className="user-login me-1" onClick={(e) => navigate("/login")}>
                     Đăng nhập
                   </p>
-                  <span> / </span>
+                  <span className="d-none d-md-block"> / </span>
                   <p className="user-register ms-1" onClick={(e) => navigate("/register")}>
                     Đăng ký
                   </p>
@@ -117,7 +117,7 @@ const Header = () => {
                 </FavoriteList>
 
                 {/* Cart */}
-                <div onClick={() => navigate("/cart")} className="user-cart">
+                <div id="user-cart" onClick={() => navigate("/cart")} className="user-cart">
                   <i className="cart bi bi-bag-check-fill ms-2" title="Giỏ hàng của bạn"></i>
                   {cartItemsCount ? <span className="cart-amount">{cartItemsCount}</span> : ""}
                   {/* hover show */}
@@ -127,64 +127,64 @@ const Header = () => {
                 </div>
               </div>
             </div>
+
+            {/* mobile  menu */}
+            <MobileMenu>
+              <div className="mobile-menu-main">
+                <div className="mobile-menu-header">
+                  <h1>Sneaker</h1>
+                </div>
+
+                <ul className="mobile-menu-content">
+                  <Link to="/home" className="mobile-menu-item">
+                    Trang chủ
+                  </Link>
+                  <Link to="/products" className="mobile-menu-item">
+                    Sneaker
+                  </Link>
+                  <Link to="/news" className="mobile-menu-item">
+                    Tin Tức
+                  </Link>
+                  <Link to="/contact" className="mobile-menu-item">
+                    Liên hệ
+                  </Link>
+                  <Link to="/about" className="mobile-menu-item">
+                    Chúng tôi
+                  </Link>
+                </ul>
+
+                <div className="mobile-menu-search">
+                  <input type="text" onChange={(e) => contextSearch.handleChangeSearch(e)} />
+                  <button type="button" onClick={contextSearch.handleSearch}>
+                    Tìm
+                  </button>
+                </div>
+
+                {isLoggedIn ? (
+                  <div className="mobile-menu-signin">
+                    <p className="me-1" onClick={() => navigate("/profile/account")}>
+                      {userInfo.fullName}
+                    </p>
+                    <span>/</span>
+                    <p className="ms-1" onClick={() => dispatch(logout())}>
+                      Đăng xuất
+                    </p>
+                  </div>
+                ) : (
+                  <div className="mobile-menu-signin">
+                    <Link to="/login" className="me-1">
+                      Đăng nhập
+                    </Link>
+                    <span>/</span>
+                    <Link to="/register" className="ms-1">
+                      Đăng ký
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </MobileMenu>
           </div>
         </div>
-
-        {/* mobile  menu */}
-        <MobileMenu>
-          <div className="mobile-menu-main">
-            <div className="mobile-menu-header">
-              <h1>Sneaker Shop</h1>
-            </div>
-
-            <ul className="mobile-menu-content">
-              <Link to="/home" className="mobile-menu-item">
-                Trang chủ
-              </Link>
-              <Link to="/products" className="mobile-menu-item">
-                Sneaker
-              </Link>
-              <Link to="/news" className="mobile-menu-item">
-                Tin Tức
-              </Link>
-              <Link to="/contact" className="mobile-menu-item">
-                Liên hệ
-              </Link>
-              <Link to="/about" className="mobile-menu-item">
-                Chúng tôi
-              </Link>
-            </ul>
-
-            <div className="mobile-menu-search">
-              <input type="text" onChange={(e) => contextSearch.handleChangeSearch(e)} />
-              <button type="button" onClick={contextSearch.handleSearch}>
-                Tìm
-              </button>
-            </div>
-
-            {isLoggedIn ? (
-              <div className="mobile-menu-signin">
-                <p className="me-1" onClick={() => navigate("/profile/account")}>
-                  {userInfo.fullName}
-                </p>
-                <span>/</span>
-                <p className="ms-1" onClick={() => dispatch(logout())}>
-                  Đăng xuất
-                </p>
-              </div>
-            ) : (
-              <div className="mobile-menu-signin">
-                <Link to="/login" className="me-1">
-                  Đăng nhập
-                </Link>
-                <span>/</span>
-                <Link to="/register" className="ms-1">
-                  Đăng ký
-                </Link>
-              </div>
-            )}
-          </div>
-        </MobileMenu>
       </header>
     </>
   );

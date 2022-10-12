@@ -1,5 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import ConfirmModal from "../../components/ConfirmModal/ConfirmModal";
 import convertToVnd from "../../helpers/convertToVnd";
 import { removeFromCart } from "../../redux/reducers/cartSlice";
 
@@ -7,15 +9,19 @@ const MiniCart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const showMiniCart = useSelector((state) => state.cart.showMiniCart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleRemoveItem = (e, idRemove, sizeRemove) => {
-    e.stopPropagation();
-    const action = removeFromCart({
-      idRemove,
-      sizeRemove,
-    });
+  const handleRemoveItem = (value, item) => {
+    if (value === "confirm") {
+      const action = removeFromCart({
+        idRemove: item.id,
+        sizeRemove: item.sizeSelect,
+      });
 
-    dispatch(action);
+      dispatch(action);
+    }
+
+    navigate(window.location.pathname);
   };
 
   return (
@@ -35,12 +41,11 @@ const MiniCart = () => {
                   <img src={item.product.imageArr[1]} alt="flaied" />
                 </div>
                 <p className="mini-cart-item-quantity m-0">{`x${item.quantity}`}</p>
-                <button
-                  type="button"
-                  onClick={(e) => handleRemoveItem(e, item.id, item.sizeSelect)}
-                >
-                  Xóa
-                </button>
+
+                <ConfirmModal
+                  title="Bạn chắc chắn muốn hủy đơn hàng?"
+                  onClick={(e) => handleRemoveItem(e, item)}
+                />
               </div>
             ))}
           </>

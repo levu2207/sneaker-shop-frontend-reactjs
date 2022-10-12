@@ -1,12 +1,12 @@
 /* Banner Slider */
 .banner-slider {
-  height: 600px;
+  min-height: 600px;
   margin-top: 100px;
 }
 
 .slider-item {
-  position: relative;
-  height: 600px;
+  min-height: 600px;
+  height: auto;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,15 +22,6 @@
 
 .slide-item-3 {
   background-image: url(../../Assets/image/banner-slider/slider3.jpg);
-}
-
-.slider-content {
-  position: absolute;
-  top: 140px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto 0;
 }
 
 .heading-slide {

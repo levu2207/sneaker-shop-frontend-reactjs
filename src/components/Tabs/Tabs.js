@@ -6,26 +6,21 @@ const Tabs = (props) => {
   const tabs = [
     {
       id: 1,
-      tabTitle: "Phổ Biến",
-      value: "",
-    },
-    {
-      id: 2,
       tabTitle: "Bán Chạy",
       value: "",
     },
     {
-      id: 3,
+      id: 2,
       tabTitle: "Hàng Mới",
       value: "",
     },
     {
-      id: 4,
+      id: 3,
       tabTitle: "Giá Thấp Đến Cao",
       value: "ASC",
     },
     {
-      id: 5,
+      id: 4,
       tabTitle: "Giá Cao Đến Thấp",
       value: "DESC",
     },

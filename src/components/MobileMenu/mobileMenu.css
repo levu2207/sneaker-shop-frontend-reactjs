@@ -1,15 +1,14 @@
 /* mobile menu list */
 
 .mobile-menu-list {
-  width: 340px;
-  background-color: wheat;
+  width: 300px;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   transform: translateX(-100%);
   transition: all 0.2s linear;
-  background: linear-gradient(to bottom right, #aacaef 0%, #fde7f9 100%);
+  background-color: #fff;
   box-shadow: 6px 0 6px -6px #333333;
 }
 
@@ -47,7 +46,7 @@
   width: 100%;
   font-size: 20px;
   line-height: 40px;
-  padding-left: 80px;
+  padding-left: 60px;
 }
 
 .mobile-menu-item:hover {
@@ -61,6 +60,7 @@
   padding: 4px;
   background-color: var(--white-color);
   border-radius: 4px;
+  display: flex;
 }
 .mobile-menu-search input {
   height: 100%;

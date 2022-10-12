@@ -63,3 +63,33 @@
 
 .paging-limit label {
 }
+
+/* responsive */
+
+@media (max-width: 992px) {
+  .product-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-product-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sidebar-product-category button {
+    padding-bottom: 0;
+  }
+  .sidebar-product-brand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+  }
+  .sidebar-product-brand button,
+  .sidebar-product-brand p {
+    padding-bottom: 0;
+  }
+  .product-sidebar {
+    width: 100%;
+  }
+}

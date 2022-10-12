@@ -3,11 +3,16 @@
 .user-profile {
   margin-top: 100px;
 }
+
+.wrapper-user-info {
+  background-color: #fff;
+}
+
 .user-profile-name {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  height: 50px;
+  min-height: 50px;
   font-weight: 700;
 }
 .user-profile-name img {
@@ -16,6 +21,7 @@
   object-fit: contain;
   border-radius: 50%;
   border: 1px solid #ddd;
+  margin-right: 12px;
 }
 
 /* Account */
@@ -34,7 +40,6 @@
 }
 
 .form-info {
-  width: 65%;
   padding: 16px 40px 16px 16px;
 }
 
@@ -158,4 +163,24 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+/* responsive */
+@media (max-width: 1200px) {
+  .wrapper-user-info {
+    background-color: transparent;
+  }
+}
+@media (max-width: 992px) {
+  .account-form-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
+  .form-info-input input {
+    width: auto;
+  }
 }

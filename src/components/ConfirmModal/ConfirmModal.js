@@ -14,7 +14,13 @@ const ConfirmModal = (props) => {
 
   return (
     <div>
-      <button onClick={() => setShow(true)} className="primary-btn rounded-btn-1 small">
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setShow(true);
+        }}
+        className="primary-btn rounded-btn-1 small"
+      >
         Xóa
       </button>
 
