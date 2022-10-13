@@ -43,7 +43,8 @@ const MiniCart = () => {
                 <p className="mini-cart-item-quantity m-0">{`x${item.quantity}`}</p>
 
                 <ConfirmModal
-                  title="Bạn chắc chắn muốn hủy đơn hàng?"
+                  text="Xóa"
+                  title="Bạn chắc chắn muốn xóa sản phẩm khỏi giỏ hàng?"
                   onClick={(e) => handleRemoveItem(e, item)}
                 />
               </div>

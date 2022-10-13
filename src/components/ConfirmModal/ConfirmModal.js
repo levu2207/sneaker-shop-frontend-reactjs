@@ -3,7 +3,7 @@ import { Modal } from "react-bootstrap";
 import "./confirmModal.css";
 
 const ConfirmModal = (props) => {
-  const { title, onClick } = props;
+  const { title, onClick, className, type, disabled, text } = props;
 
   const [show, setShow] = useState(false);
 
@@ -15,13 +15,15 @@ const ConfirmModal = (props) => {
   return (
     <div>
       <button
+        type={type}
+        disabled={disabled}
         onClick={(e) => {
           e.stopPropagation();
           setShow(true);
         }}
-        className="primary-btn rounded-btn-1 small"
+        className={className}
       >
-        Xóa
+        {text}
       </button>
 
       <Modal
