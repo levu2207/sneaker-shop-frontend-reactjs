@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import HeroDetail from "../../Assets/image/hero-product.jpg";
 import Hero from "../../components/Hero/Hero";
@@ -21,7 +21,6 @@ const ProductDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const salePercent = Number(product.sale);
   const salePrice = product.price - (product.price * salePercent) / 100;

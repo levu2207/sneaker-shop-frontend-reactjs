@@ -1,15 +1,10 @@
-import React, { useState } from "react";
-import { useOutletContext } from "react-router-dom";
-import convertToVnd from "../../helpers/convertToVnd";
-import { cancelOrder } from "../../redux/reducers/orderSlice";
-import OrderItems from "./OrderItems";
-import { useDispatch } from "react-redux";
-import orderService from "../../services/orderService";
+import React from "react";
 import ConfirmModal from "../../components/ConfirmModal/ConfirmModal";
+import convertToVnd from "../../helpers/convertToVnd";
+import orderService from "../../services/orderService";
+import OrderItems from "./OrderItems";
 
 const OrderList = ({ orderList }) => {
-  const dispatch = useDispatch();
-
   const convertTime = (time) => {
     const date = new Date(time);
     return `${date.toLocaleTimeString("vi-VN")} ngày ${date.toLocaleDateString("vi-VN")}`;
