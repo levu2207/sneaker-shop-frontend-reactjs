@@ -1,18 +1,19 @@
 import React from "react";
 import Hero from "../../components/Hero/Hero";
-import "./Contact.css"
-import heroContact from "../../Assets/image/hero-contact.jpg" 
-import Title from './../../components/Title/Titile';
-import CustomizeButton from './../../components/Buttons/CustomizeButton';
+import "./Contact.css";
+import heroContact from "../../Assets/image/hero-contact.jpg";
+import Title from "./../../components/Title/Titile";
+import CustomizeButton from "./../../components/Buttons/CustomizeButton";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   return (
     <>
-      <Hero
-        title="Liên Hệ"
-        subTitle="Liên hệ với chúng tôi"
-        heroImg={heroContact}
-      />
+      <Helmet>
+        <title>Thông tin liên hệ của chúng tôi</title>
+        <meta name="description" content="Mọi thắc mắc và khiếu nại xin liên hệ với chúng tôi" />
+      </Helmet>
+      <Hero title="Liên Hệ" subTitle="Liên hệ với chúng tôi" heroImg={heroContact} />
       <div className="container">
         <div className="row">
           <Title page="Liên Hệ" />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -39,6 +40,14 @@ const Login = () => {
 
   return (
     <div className="wrapper-login row justify-content-center align-items-center">
+      <Helmet>
+        <title>Đăng nhập tài khoản</title>
+        <meta
+          name="description"
+          content="SALE off lên tới 70%. Uy Tín nhiều năm trên thị trường. Bounty Sneakers chuyên cung cấp Giày Sneaker Thể Thao Adidas, 
+          Nike nam nữ Chính Hãng 100%. Đổi trả miễn phí."
+        />
+      </Helmet>
       <div className="container-login col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-7 col-10">
         <div className=" bg-white rounded-4 my-5 px-5 py-5">
           <form className="mb-3" onSubmit={(e) => handleLogin(e)}>

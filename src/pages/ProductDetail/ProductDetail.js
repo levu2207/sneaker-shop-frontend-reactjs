@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { Helmet } from "react-helmet";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -70,6 +71,13 @@ const ProductDetail = () => {
         <Loading />
       ) : (
         <div className="product-detail mt-3">
+          <Helmet>
+            <title>{`Giày ${product.brand} ${product.name}`}</title>
+            <meta
+              name="description"
+              content={`Chi tiết về Giày ${product.brand} ${product.name}`}
+            />
+          </Helmet>
           <Container>
             <div className="breadcrumb">
               <Link to="/home">Trang chủ</Link>

@@ -10,6 +10,7 @@ import Order from "./Order";
 import { cartTotalSelector } from "./selectors";
 import convertToVnd from "../../helpers/convertToVnd";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -35,6 +36,10 @@ const Cart = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Giỏ hàng của bạn</title>
+        <meta name="description" content="Giỏ hàng của bạn" />
+      </Helmet>
       <Hero title="Giỏ Hàng" subTitle="Các sản phẩm đã được thêm vào giỏ hàng" heroImg={heroCart} />
 
       <div className="container">

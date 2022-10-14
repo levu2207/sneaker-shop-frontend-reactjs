@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import CustomizeButton from "./../../components/Buttons/CustomizeButton";
 import userService from "../../services/userService";
 import { updateUserInfo } from "../../redux/reducers/authSlice";
+import { Helmet } from "react-helmet";
 
 const Account = () => {
   const userInfo = useSelector((state) => state.auth.userInfo);
@@ -56,6 +57,10 @@ const Account = () => {
 
   return (
     <div className="account-content">
+      <Helmet>
+        <title>Cập nhật tài khoản</title>
+        <meta name="description" content="Cập nhật tài khoản và quản lý đơn hàng" />
+      </Helmet>
       <h4 className="pb-4 account-content-heading">Hồ sơ của tôi</h4>
 
       <div className="account-form-info py-3">

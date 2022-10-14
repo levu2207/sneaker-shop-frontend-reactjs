@@ -1,16 +1,17 @@
 import React from "react";
 import "./about.css";
-import Title from './../../components/Title/Titile';
-import Hero from './../../components/Hero/Hero';
-import heroAbout from "../../Assets/image/hero-about.jpg"
+import Title from "./../../components/Title/Titile";
+import Hero from "./../../components/Hero/Hero";
+import heroAbout from "../../Assets/image/hero-about.jpg";
+import { Helmet } from "react-helmet";
 const About = () => {
   return (
     <>
-      <Hero
-        title="Chúng Tôi"
-        subTitle="Tìm hiểu nhiều hơn về chúng tôi"
-        heroImg={heroAbout}
-      />
+      <Helmet>
+        <title>Giới thiệu về Sneaker</title>
+        <meta name="description" content="Cập nhật tài khoản và quản lý đơn hàng" />
+      </Helmet>
+      <Hero title="Chúng Tôi" subTitle="Tìm hiểu nhiều hơn về chúng tôi" heroImg={heroAbout} />
       <div className="container">
         <div className="row">
           <Title page="Chúng Tôi" />
@@ -19,15 +20,13 @@ const About = () => {
               Snea<span>ker. Brand</span>
             </p>
             <p className="text-content-about">
-              " Bắt đầu từ năm 2015 khi cơn sốt giày sneaker bắt đầu len lỏi vào
-              giới trẻ.Sneaker đã ra đời như một địa điểm lý tưởng để mua sắm
-              những mẫu giày tuyệt đẹp. Với phương châm hoạt động NHANH NHẤT và
-              MỚI NHẤT. Chúng tôi tự tin là thương hiệu luôn kịp thời cập nhật
-              xu hướng trong cộng đồng yêu thích “nền văn hóa mặt đất” – giày
-              sneaker. Gần 2 năm hoạt động, hơn 40 000 khách hàng ghé cửa hàng
-              mỗi năm. Hơn 500 đơn hàng online mỗi tháng và tiếp đón hàng trăm
-              lượt khách mỗi ngày. Sneaker tự tin mang đến trải nghiệm tốt đẹp
-              nhất cho khách hàng khi ghé thăm chúng tôi."
+              " Bắt đầu từ năm 2015 khi cơn sốt giày sneaker bắt đầu len lỏi vào giới trẻ.Sneaker đã
+              ra đời như một địa điểm lý tưởng để mua sắm những mẫu giày tuyệt đẹp. Với phương châm
+              hoạt động NHANH NHẤT và MỚI NHẤT. Chúng tôi tự tin là thương hiệu luôn kịp thời cập
+              nhật xu hướng trong cộng đồng yêu thích “nền văn hóa mặt đất” – giày sneaker. Gần 2
+              năm hoạt động, hơn 40 000 khách hàng ghé cửa hàng mỗi năm. Hơn 500 đơn hàng online mỗi
+              tháng và tiếp đón hàng trăm lượt khách mỗi ngày. Sneaker tự tin mang đến trải nghiệm
+              tốt đẹp nhất cho khách hàng khi ghé thăm chúng tôi."
             </p>
           </div>
 

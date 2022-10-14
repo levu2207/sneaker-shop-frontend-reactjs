@@ -5,6 +5,7 @@ import Input from "../../components/Input/Input";
 import userService from "../../services/userService";
 import { toast } from "react-toastify";
 import { registerFailed, registerStart, registerSuccess } from "../../redux/reducers/authSlice";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const [user, setUser] = useState({});
@@ -37,6 +38,13 @@ const Register = () => {
 
   return (
     <div className="wrapper-login row justify-content-center align-items-center">
+      <Helmet>
+        <title>Đăng ký tài khoản</title>
+        <meta
+          name="description"
+          content="Đăng ký tài khoản để nhận nhiều thông tin và ưu đãi mua hàng ở Sneaker"
+        />
+      </Helmet>
       <div className="container-login col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-7 col-10">
         <div className="bg-white rounded-4 my-5 px-5 py-5">
           <form className="mb-3" onSubmit={(e) => handleRegister(e)}>

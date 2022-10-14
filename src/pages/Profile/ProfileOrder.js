@@ -3,6 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import orderService from "../../services/orderService";
 import { clearOrder, loadOrderList } from "../../redux/reducers/orderSlice";
+import { Helmet } from "react-helmet";
 
 const ProfileOrder = () => {
   const orderList = useSelector((state) => state.order.orders);
@@ -21,6 +22,10 @@ const ProfileOrder = () => {
 
   return (
     <div className="profile-order">
+      <Helmet>
+        <title>Đơn hàng của bạn</title>
+        <meta name="description" content="Cập nhật tài khoản và quản lý đơn hàng" />
+      </Helmet>
       <div className="profile-order-header">
         <NavLink to="all">Tất cả</NavLink>
         <NavLink to="pending">Chờ xác nhận</NavLink>

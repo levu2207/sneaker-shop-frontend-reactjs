@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -23,6 +24,10 @@ const Profile = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Thông tin tài khoản của bạn</title>
+        <meta name="description" content="Cập nhật tài khoản và quản lý đơn hàng" />
+      </Helmet>
       <div className="user-profile">
         <Row className="pt-5">
           <Col xl={2} className="wrapper-user-info py-3 ">

@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -101,6 +102,10 @@ const Pay = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Trang thanh toán</title>
+        <meta name="description" content="Trang thanh toán" />
+      </Helmet>
       <Hero title="Thanh Toán" subTitle="Còn rất nhiều Voucher dành cho bạn" heroImg={heroPay} />
       <div className="container">
         <div className="row">
