@@ -2,7 +2,7 @@ import axios from "axios";
 import store from "../redux/store";
 
 const url = {
-  baseUrl: "http://localhost:8080/api",
+  baseUrl: process.env.REACT_APP_API_BASE_URL,
   login: "/users/login",
   register: "/users/register",
   products: "/products",

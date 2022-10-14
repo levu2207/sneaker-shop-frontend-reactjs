@@ -41,7 +41,7 @@ const OrderList = ({ orderList }) => {
         text = "Chờ xác nhận";
         break;
 
-      case "complete":
+      case "success":
         text = "Hoàn thành";
         break;
 

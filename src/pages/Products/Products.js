@@ -186,7 +186,7 @@ const Products = () => {
                 <div className="paging-limit col-12 col-lg-3">
                   <label>Số sản phẩm hiển thị:</label>
                   <select value={limit} onChange={handleChangeLimit} className="">
-                    <option value="10">10</option>
+                    <option value="8">8</option>
                     <option value="20">20</option>
                     <option value="50">50</option>
                     <option value="100">100</option>

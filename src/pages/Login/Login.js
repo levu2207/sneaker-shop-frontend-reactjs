@@ -23,10 +23,10 @@ const Login = () => {
             userInfo: res.data,
           })
         );
-        toast.success("Login Successfull");
+        toast.success("Đăng nhập thành công");
         navigate("/home");
       } else {
-        toast.error("Login failed");
+        toast.error("Đăng nhập thất bại");
       }
     });
   };
