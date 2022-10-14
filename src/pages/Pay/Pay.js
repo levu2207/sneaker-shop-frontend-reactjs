@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
@@ -10,7 +10,6 @@ import InputFormik from "../../components/Input/InputFormik";
 import TextAreaFormik from "../../components/Input/TextAreaFormik";
 import convertToVnd from "../../helpers/convertToVnd";
 import { removeCartItems } from "../../redux/reducers/cartSlice";
-import { createOrder } from "../../redux/reducers/orderSlice";
 import detailService from "../../services/detailService";
 import orderService from "../../services/orderService";
 import { cartTotalSelector } from "../Cart/selectors";
