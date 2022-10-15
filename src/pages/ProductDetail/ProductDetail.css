@@ -16,8 +16,8 @@
 }
 
 .product-detail-image .image-display img {
-  /* min-width: 440px;
-  min-height: 440px; */
+  min-height: 516px;
+  object-fit: contain;
 }
 
 .product-detail-image .image-select {
@@ -29,6 +29,7 @@
 .product-detail-image .image-select img {
   height: 70px;
   width: 70px;
+  object-fit: contain;
   padding: 4px;
   margin-right: 16px;
   border: 1px solid rgb(242, 242, 242);

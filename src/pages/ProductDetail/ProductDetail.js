@@ -97,7 +97,10 @@ const ProductDetail = () => {
 
                   <h1 className="product-detail-name pb-3 mt-2">{product.name}</h1>
 
-                  <p className="pe-3 pb-3">{product.description}</p>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: product.description }}
+                    className="pe-3 pb-3"
+                  ></div>
 
                   {/* product price */}
                   <div className="product-detail-price py-3 me-4">

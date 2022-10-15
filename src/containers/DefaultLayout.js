@@ -2,15 +2,15 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { SearchProvider } from "../components/Product/SearchContext";
 import Account from "../pages/Profile/Account";
+import AllOrder from "../pages/Profile/AllOrder";
+import CancelOrder from "../pages/Profile/CancelOrder";
+import PendingOrder from "../pages/Profile/PendingOrder";
 import Profile from "../pages/Profile/Profile";
 import ProfileOrder from "../pages/Profile/ProfileOrder";
+import SuccessOrder from "../pages/Profile/SuccessOrder";
 import routes from "./../routes/routes";
 import Footer from "./Footer";
 import Header from "./Header";
-import AllOrder from "../pages/Profile/AllOrder";
-import PendingOrder from "../pages/Profile/PendingOrder";
-import SuccessOrder from "../pages/Profile/SuccessOrder";
-import CancelOrder from "../pages/Profile/CancelOrder";
 
 const DefaultLayout = () => {
   return (
@@ -26,6 +26,7 @@ const DefaultLayout = () => {
             <Route path="cancel" element={<CancelOrder />} />
           </Route>
         </Route>
+
         {routes.map((route, idx) => (
           <Route key={idx} path={route.path} element={route.component}></Route>
         ))}

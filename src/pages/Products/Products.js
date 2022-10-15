@@ -1,5 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import queryString from "query-string";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Pagination } from "react-bootstrap";
+import { useLocation, useNavigate } from "react-router-dom";
 import heroSneaker from "../../Assets/image/hero-product.jpg";
 import Hero from "../../components/Hero/Hero";
 import ProductList from "../../components/Product/ProductList";
@@ -11,16 +13,27 @@ import productService from "./../../services/productService";
 import "./products.css";
 
 const Products = () => {
-  const contextSearch = useContext(SearchContext);
+  window.onpopstate = () => {
+    navigate("/");
+  };
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const queryParams = useMemo(() => {
+    return queryString.parse(location.search);
+  }, [location.search]);
+
   const [currentTab, setCurrentTab] = useState(1);
   const [loading, setLoading] = useState(true);
   const [productList, setProductList] = useState([]);
-  const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(8);
-  const [price, setPrice] = useState("");
-  const [brand, setBrand] = useState("");
+
+  const contextSearch = useContext(SearchContext);
+  const [page, setPage] = useState(Number.parseInt(queryParams.page) || 1);
+  const [limit, setLimit] = useState(Number.parseInt(queryParams.limit) || 8);
+  const [price, setPrice] = useState(queryParams.price || "");
+  const [brand, setBrand] = useState(queryParams.brand || "");
+  const [category, setCategory] = useState(queryParams.category || "");
   const [pagingItems, setPagingItems] = useState([]);
-  const [category, setCategory] = useState("");
 
   useEffect(() => {
     window.scrollTo(0, 400);
@@ -28,6 +41,21 @@ const Products = () => {
 
   useEffect(() => {
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, limit, price, brand, category, contextSearch.search]);
+
+  useEffect(() => {
+    location.search = queryString.stringify({
+      page,
+      limit,
+      brand,
+      category,
+      search: contextSearch.search,
+      price,
+    });
+
+    navigate(`/products?${location.search}`, { replace: true });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, limit, price, brand, category, contextSearch.search]);
 
@@ -41,6 +69,7 @@ const Products = () => {
       contextSearch.search,
       price
     );
+
     setProductList(data);
     setPage(pagination.currentPage);
     setLoading(false);
@@ -79,6 +108,13 @@ const Products = () => {
   const handleTabClick = (e) => {
     setCurrentTab(e.target.id);
     setPrice(e.target.value);
+    if (e.target.name === "all") {
+      setPage(1);
+      setLimit(8);
+      setPrice("");
+      setBrand("");
+      setCategory("");
+    }
   };
 
   const handleChangeLimit = (e) => {
@@ -90,14 +126,22 @@ const Products = () => {
     setCurrentTab("");
     setPage(1);
     setPrice("");
+    setBrand("");
     setCategory(e.target.value);
+    document.querySelector(".sidebar-category-item.active")?.classList.remove("active");
+    document.querySelector(".sidebar-brand-item.active")?.classList.remove("active");
+    e.target.classList.add("active");
   };
 
   const handleChangeBrand = (e) => {
     setCurrentTab("");
     setPage(1);
     setPrice("");
+    setCategory("");
     setBrand(e.target.value);
+    document.querySelector(".sidebar-category-item.active")?.classList.remove("active");
+    document.querySelector(".sidebar-brand-item.active")?.classList.remove("active");
+    e.target.classList.add("active");
   };
 
   return (
@@ -118,7 +162,6 @@ const Products = () => {
                 <div className="sidebar-product-category px-3">
                   <h5 className="sidebar-heading py-3">DANH MỤC</h5>
                   <button
-                    type="button"
                     value={1}
                     onClick={(e) => handleCategory(e)}
                     className="sidebar-category-item"
@@ -139,7 +182,13 @@ const Products = () => {
                   >
                     Giày Trẻ Em
                   </button>
-                  <button className="sidebar-category-item">Giày Thể Thao</button>
+                  <button
+                    value={4}
+                    onClick={(e) => handleCategory(e)}
+                    className="sidebar-category-item"
+                  >
+                    Giày Thể Thao
+                  </button>
                 </div>
                 <div className="sidebar-product-brand px-3">
                   <h5 className="sidebar-heading py-3">THƯƠNG HIỆU</h5>
@@ -170,6 +219,22 @@ const Products = () => {
                     className="sidebar-brand-item"
                   >
                     New Balance
+                  </button>
+
+                  <button
+                    value="VANS"
+                    onClick={(e) => handleChangeBrand(e)}
+                    className="sidebar-brand-item"
+                  >
+                    Vans
+                  </button>
+
+                  <button
+                    value="REEBOK"
+                    onClick={(e) => handleChangeBrand(e)}
+                    className="sidebar-brand-item"
+                  >
+                    Reebok
                   </button>
                 </div>
               </div>
@@ -203,7 +268,15 @@ const Products = () => {
                 </div>
               )}
               {/* Product pagination */}
-              <Pagination className="d-flex justify-content-center my-3">{pagingItems}</Pagination>
+              {productList.length > 0 ? (
+                <Pagination className="d-flex justify-content-center my-3">
+                  {pagingItems}
+                </Pagination>
+              ) : (
+                <div className="d-flex justify-content-center mt-5">
+                  <h5>Hiện tại chưa có sản phẩm thuộc danh mục này</h5>
+                </div>
+              )}
             </div>
           </div>
         </div>

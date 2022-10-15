@@ -11,9 +11,8 @@ import Products from "./../pages/Products/Products";
 const routes = [
   { path: "", component: <Home /> },
   { path: "/home", component: <Home /> },
-  // { path: "/profile", component: <Profile /> },
   { path: "/products", component: <Products /> },
-  { path: "/products/:id", component: <ProductDetail /> },
+  { path: "/products/:id/:title", component: <ProductDetail /> },
   { path: "/news", component: <News /> },
   { path: "/contact", component: <Contact /> },
   { path: "/about", component: <About /> },

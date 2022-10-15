@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import CustomizeButton from "../../components/Buttons/CustomizeButton";
 import convertToVnd from "../../helpers/convertToVnd";
+import stringUtil from "../../utils/stringUltil";
 import CardModal from "../CardModal/CardModal";
 import "./product.css";
 
@@ -11,7 +12,7 @@ const Product = ({ product }) => {
   const navigate = useNavigate();
 
   const handleProductDetail = (e) => {
-    navigate(`/products/${product.id}`);
+    navigate(`/products/${product.id}/${stringUtil.GenUrlFriendly(product.name)}`);
   };
 
   return (
@@ -39,8 +40,17 @@ const Product = ({ product }) => {
         </div>
 
         <div className="mb-2 d-flex justify-content-between align-items-center">
-          <div className="product-price-sale">{convertToVnd(salePrice)}</div>
-          <div className="product-price ">{convertToVnd(product.price)}</div>
+          {product.sale > 0 ? (
+            <div className="product-price-sale">{convertToVnd(salePrice)}</div>
+          ) : (
+            <div className="product-price-sale">{convertToVnd(product.price)}</div>
+          )}
+
+          {product.sale > 0 ? (
+            <div className="product-price">{convertToVnd(product.price)}</div>
+          ) : (
+            ""
+          )}
         </div>
 
         <div className="product-footer ">
