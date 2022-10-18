@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import CustomizeButton from "../../components/Buttons/CustomizeButton";
 import convertToVnd from "../../helpers/convertToVnd";
 import { addFavoriteItem, removeFavoriteItem } from "../../redux/reducers/favoriteSlice";
@@ -29,9 +30,11 @@ const Product = ({ product }) => {
           productId: data.id,
         })
       );
+      toast.warn("Đã xóa sản phẩm khỏi yêu thích");
     } else {
       e.target.classList.add("active-favorite");
       dispatch(addFavoriteItem(data));
+      toast.success("Đã thêm sản phẩm vào yêu thích");
     }
   };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import useClickOutSide from "../../components/Hooks/useClickOutSide";
 import convertToVnd from "../../helpers/convertToVnd";
 import { removeFavoriteItem } from "../../redux/reducers/favoriteSlice";
@@ -21,6 +22,7 @@ const FavoriteList = (props) => {
         productId: id,
       })
     );
+    toast.warn("Đã xóa sản phẩm khỏi yêu thích");
   };
 
   return (
