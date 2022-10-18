@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
+import { useNavigate } from "react-router-dom";
 import CustomizeButton from "../../components/Buttons/CustomizeButton";
 import "./banner.css";
 
 const Banner = () => {
   const [index, setIndex] = useState(0);
+  const navigate = useNavigate();
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -26,8 +28,11 @@ const Banner = () => {
                     bóng cổ điển với công nghệ Flyknit trong phiên bản mới cải tiến của nguyên bản.
                   </p>
 
-                  <CustomizeButton className="primary-btn rounded-btn-3 ">
-                    Mua ngay!
+                  <CustomizeButton
+                    onClick={() => navigate("/products")}
+                    className="banner-btn primary-btn rounded-btn-3 big"
+                  >
+                    Mua ngay
                   </CustomizeButton>
                 </div>
               </div>
@@ -48,8 +53,11 @@ const Banner = () => {
                     nghiệm chạy bộ của bạn lên một tầm cao mới.
                   </p>
 
-                  <CustomizeButton className="primary-btn rounded-btn-3 link-btn m-0 d-flex justify-content-center align-items-center">
-                    Mua ngay!
+                  <CustomizeButton
+                    onClick={() => navigate("/products")}
+                    className="banner-btn primary-btn rounded-btn-3 big"
+                  >
+                    Mua ngay
                   </CustomizeButton>
                 </div>
               </div>
@@ -70,8 +78,11 @@ const Banner = () => {
                       tông màu đơn giản và gần gũi như đen, đỏ và trắng.
                     </p>
 
-                    <CustomizeButton className="primary-btn rounded-btn-3 link-btn m-0 d-flex justify-content-center align-items-center">
-                      Mua ngay!
+                    <CustomizeButton
+                      onClick={() => navigate("/products")}
+                      className="banner-btn primary-btn rounded-btn-3 big"
+                    >
+                      Mua ngay
                     </CustomizeButton>
                   </div>
                 </div>

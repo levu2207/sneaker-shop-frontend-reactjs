@@ -50,21 +50,23 @@ const CardModal = ({ product }) => {
       </button>
 
       <Modal
+        className="p-0"
         centered
         size="lg"
         show={show}
         onHide={() => setShow(false)}
         aria-labelledby="example-modal-sizes-title-lg"
       >
-        <div className="product-modal-container d-flex justify-content-center align-items-center">
+        <div className="product-modal-container">
           <div className="product-modal-img">
             <img src={product.imageArr[0]} alt="nike" />
           </div>
           <div className="product-modal-info p-4">
             <div className="product-modal-header">
-              <div className="product-brand text-center fs-3">{product.brand}</div>
-
-              <h3 className="product-name text-center mb-4">{product.name}</h3>
+              <Modal.Header closeButton className="p-0 border-0">
+                <div className="product-brand text-center fs-3">{product.brand}</div>
+              </Modal.Header>
+              <h3 className="product-name mb-4">{product.name}</h3>
 
               <p className="product-modal-desc py-3 border-top ">{product.description}</p>
             </div>

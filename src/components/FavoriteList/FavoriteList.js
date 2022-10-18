@@ -11,7 +11,7 @@ import "./favoriteList.css";
 const FavoriteList = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { title, favoriteList } = props;
+  const { title, favoriteList, quantity } = props;
   const { show, setShow, nodeRef } = useClickOutSide();
 
   const handleCancelLike = (e, id) => {
@@ -28,6 +28,11 @@ const FavoriteList = (props) => {
       <div onClick={() => setShow(true)} className="user-favorite">
         {title}
       </div>
+
+      <button className="favorite-btn" onClick={() => setShow(true)}>
+        {quantity !== 0 ? <span className="favorite-quantity">{quantity}</span> : ""}
+        <i className="bi bi-heart " title="Danh sách yêu thích" />
+      </button>
 
       <div className={`favorite-list ${show ? "show-favorite-list" : ""}`}>
         <div className="p-3">

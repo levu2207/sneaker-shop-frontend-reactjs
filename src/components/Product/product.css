@@ -191,3 +191,12 @@
   scale: 1.1;
   transition: 0.3s ease-in-out;
 }
+
+@media (max-width: 390px) {
+  .product-price-sale {
+    font-size: 18px;
+  }
+  .product-price {
+    font-size: 12px;
+  }
+}

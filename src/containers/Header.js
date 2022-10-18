@@ -12,9 +12,9 @@ import FavoriteList from "./../components/FavoriteList/FavoriteList";
 import "./header.css";
 
 const Header = () => {
-  const contextSearch = useContext(SearchContext);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const contextSearch = useContext(SearchContext);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const userInfo = useSelector((state) => state.auth.userInfo);
   const favoriteList = useSelector((state) => state.favorite.favoriteList);
@@ -114,6 +114,7 @@ const Header = () => {
                     </i>
                   }
                   favoriteList={favoriteList}
+                  quantity={favoriteList.length}
                 />
 
                 {/* Cart */}

@@ -20,6 +20,8 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     (async () => {
       try {
         const { data } = await productService.list();
@@ -92,7 +94,12 @@ const Home = () => {
                     <div className="category-content d-flex flex-column justify-content-center align-items-center">
                       <p className="category-title ">Women's</p>
                       <p className="category-desc pt-2 pb-4">Collections Sneaker</p>
-                      <p className="category-link">Khám phá</p>
+                      <p
+                        onClick={() => navigate("/products?brand=&category=2&limit=8&page=1")}
+                        className="category-link"
+                      >
+                        Khám phá
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -102,7 +109,12 @@ const Home = () => {
                     <div className="category-content d-flex flex-column justify-content-center align-items-center">
                       <p className="category-title ">Men's</p>
                       <p className="category-desc pt-2 pb-4">Collections Sneaker</p>
-                      <p className="category-link">Khám phá</p>
+                      <p
+                        onClick={() => navigate("/products?brand=&category=1&limit=8&page=1")}
+                        className="category-link"
+                      >
+                        Khám phá
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -112,7 +124,12 @@ const Home = () => {
                     <div className="category-content d-flex flex-column justify-content-center align-items-center">
                       <p className="category-title ">Kid's</p>
                       <p className="category-desc pt-2 pb-4">Collections Sneaker</p>
-                      <p className="category-link">Khám phá</p>
+                      <p
+                        onClick={() => navigate("/products?brand=&category=3&limit=8&page=1")}
+                        className="category-link"
+                      >
+                        Khám phá
+                      </p>
                     </div>
                   </div>
                 </div>
