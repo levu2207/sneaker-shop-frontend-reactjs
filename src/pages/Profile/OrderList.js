@@ -63,15 +63,18 @@ const OrderList = ({ orderList }) => {
             <OrderItems order={order} />
           </div>
 
-          <div className="d-flex align-items-center justify-content-between">
-            <ConfirmModal
-              text="Hủy"
-              className="primary-btn ms-4"
-              disabled={order.status !== "pending"}
-              type="button"
-              title="Bạn chắc chắn muốn hủy đơn hàng?"
-              onClick={(e) => handleCancelOrder(e, order)}
-            />
+          <div className="d-flex align-items-center justify-content-around">
+            {order.status !== "pending" ? (
+              ""
+            ) : (
+              <ConfirmModal
+                text="Hủy"
+                className="primary-btn ms-4"
+                type="button"
+                title="Bạn chắc chắn muốn hủy đơn hàng?"
+                onClick={(e) => handleCancelOrder(e, order)}
+              />
+            )}
 
             <p>{order.isPaid === 0 ? "Thanh toán khi nhận hàng" : "Đã thanh toán"}</p>
 

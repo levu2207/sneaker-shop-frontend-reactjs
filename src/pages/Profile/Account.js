@@ -1,17 +1,18 @@
-import React, { useRef, useState } from "react";
-import InputFormik from "../../components/Input/InputFormik";
-import { useSelector, useDispatch } from "react-redux";
-import * as Yup from "yup";
 import { useFormik } from "formik";
-import CustomizeButton from "./../../components/Buttons/CustomizeButton";
-import userService from "../../services/userService";
-import { updateUserInfo } from "../../redux/reducers/authSlice";
+import React, { useRef, useState } from "react";
 import { Helmet } from "react-helmet";
+import { useDispatch, useSelector } from "react-redux";
+import * as Yup from "yup";
+import CustomButton from "../../components/Buttons/CustomButton";
+import InputFormik from "../../components/Input/InputFormik";
+import { updateUserInfo } from "../../redux/reducers/authSlice";
+import userService from "../../services/userService";
 
 const Account = () => {
   const userInfo = useSelector((state) => state.auth.userInfo);
   const dispatch = useDispatch();
   const [imageReview, setImageReview] = useState(userInfo.avatar);
+  const [isWaiting, setIsWaiting] = useState(false);
   const inputFileRef = useRef();
 
   const initialValues = {
@@ -48,11 +49,11 @@ const Account = () => {
   };
 
   const handleFormSubmit = async (data) => {
+    setIsWaiting(true);
     const account = await userService.update(userInfo.id, data);
     const action = updateUserInfo(account.data);
     dispatch(action);
-
-    console.log(account);
+    setIsWaiting(false);
   };
 
   return (
@@ -114,14 +115,15 @@ const Account = () => {
             />
           </div>
           <div className="d-flex justify-content-center">
-            <CustomizeButton
+            <CustomButton
               type="submit"
               onClick={formik.handleSubmit}
               className="primary-btn"
-              disabled={!formik.isValid || !formik.dirty}
+              disabled={!formik.isValid || !formik.dirty || isWaiting}
+              isLoading={isWaiting}
             >
               Lưu
-            </CustomizeButton>
+            </CustomButton>
           </div>
         </div>
 

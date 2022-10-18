@@ -14,3 +14,7 @@ html {
   width: 60px !important;
   height: 60px !important;
 }
+
+.text-secondary-color {
+  color: var(--secondary-color);
+}

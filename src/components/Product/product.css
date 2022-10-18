@@ -141,14 +141,35 @@
 }
 
 .product-like {
+  position: relative;
   height: 50px;
   width: 50px;
   display: flex;
+  justify-content: center;
   align-items: center;
   border: 1px solid var(--secondary-color);
   border-radius: 10px;
   color: #ccc;
   cursor: pointer;
+}
+
+.product-like::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 30;
+}
+
+.product-like-icon {
+  position: absolute;
+  font-size: 24px;
+  top: 8px;
+  z-index: 0;
+}
+
+.active-favorite {
+  color: var(--secondary-color);
 }
 
 .product-like:hover {

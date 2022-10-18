@@ -5,7 +5,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: lightgrey;
+  background-color: #eee;
   transform: translateX(100%);
   transition: all 0.2s linear;
   z-index: 20;
@@ -14,4 +14,8 @@
 .show-favorite-list {
   transform: translateX(0);
   transition: all 0.2s linear;
+}
+
+.favorite-list img {
+  width: 80px;
 }

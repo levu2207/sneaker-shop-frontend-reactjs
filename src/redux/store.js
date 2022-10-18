@@ -7,11 +7,13 @@ import authReducer from "./reducers/authSlice";
 import cartReducer from "./reducers/cartSlice";
 import orderReducer from "./reducers/orderSlice";
 import productReducer from "./reducers/productSlice";
+import favoriteReducer from "./reducers/favoriteSlice";
 
 const authPersistConfig = { key: "auth", storage };
 const cartPersistConfig = { key: "cart", storage };
 const orderPersistConfig = { key: "order", storage };
 const productPersistConfig = { key: "product", storage };
+const favoritePersistConfig = { key: "favorite", storage };
 
 const syncConfig = {
   blacklist: ["persist/PERSIST"],
@@ -22,6 +24,7 @@ const rootReducer = combineReducers({
   cart: persistReducer(cartPersistConfig, cartReducer),
   order: persistReducer(orderPersistConfig, orderReducer),
   product: persistReducer(productPersistConfig, productReducer),
+  favorite: persistReducer(favoritePersistConfig, favoriteReducer),
 });
 const store = configureStore({
   reducer: rootReducer,

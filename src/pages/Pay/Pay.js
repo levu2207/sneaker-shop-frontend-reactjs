@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 import heroPay from "../../Assets/image/hero-product.jpg";
+import CustomButton from "../../components/Buttons/CustomButton";
 import InputFormik from "../../components/Input/InputFormik";
 import TextAreaFormik from "../../components/Input/TextAreaFormik";
 import convertToVnd from "../../helpers/convertToVnd";
@@ -13,7 +14,6 @@ import { removeCartItems } from "../../redux/reducers/cartSlice";
 import detailService from "../../services/detailService";
 import orderService from "../../services/orderService";
 import { cartTotalSelector } from "../Cart/selectors";
-import CustomizeButton from "./../../components/Buttons/CustomizeButton";
 import Hero from "./../../components/Hero/Hero";
 import Title from "./../../components/Title/Titile";
 import "./Pay.css";
@@ -27,6 +27,7 @@ const Pay = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isPaid, setIsPaid] = useState(0);
+  const [isWaiting, setIsWaiting] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 400);
@@ -68,6 +69,7 @@ const Pay = () => {
   const handleFormSubmit = async (values) => {
     if (isLoggedIn) {
       // save order to database
+      setIsWaiting(true);
       const newOrder = await orderService.createOrder({
         userId: values.userId,
         fullName: values.fullName,
@@ -93,6 +95,7 @@ const Pay = () => {
 
       dispatch(removeCartItems());
       navigate("/profile/orders/all");
+      setIsWaiting(false);
       toast.success("Đặt hàng thành công!");
     } else {
       toast.warn("Vui lòng đăng nhập để đặt hàng");
@@ -227,13 +230,15 @@ const Pay = () => {
                             </div>
                           </div>
                           <div className="col-lg-12 mt-5 d-flex justify-content-center align-items-center">
-                            <CustomizeButton
+                            <CustomButton
                               type="button"
                               onClick={formik.handleSubmit}
-                              className="secondary-btn sub-out-product5 d-flex justify-content-center align-items-center text-center "
+                              className="primary-btn sub-out-product5 d-flex justify-content-center align-items-center text-center text-white"
+                              isLoading={isWaiting}
+                              disabled={isWaiting}
                             >
                               Đặt hàng
-                            </CustomizeButton>
+                            </CustomButton>
                           </div>
                         </div>
                       </div>

@@ -17,6 +17,7 @@ const Header = () => {
   const navigate = useNavigate();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const userInfo = useSelector((state) => state.auth.userInfo);
+  const favoriteList = useSelector((state) => state.favorite.favoriteList);
   const cartItemsCount = useSelector(cartItemsCountSelector);
 
   const handleLogout = () => {
@@ -112,9 +113,8 @@ const Header = () => {
                       Yêu thích
                     </i>
                   }
-                >
-                  FavoriteList
-                </FavoriteList>
+                  favoriteList={favoriteList}
+                />
 
                 {/* Cart */}
                 <div id="user-cart" onClick={() => navigate("/cart")} className="user-cart">

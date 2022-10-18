@@ -60,6 +60,8 @@ const Products = () => {
   }, [page, limit, price, brand, category, contextSearch.search]);
 
   const loadData = async () => {
+    setLoading(true);
+
     //  load product list
     const { data, pagination } = await productService.getPaging(
       page,
@@ -261,7 +263,7 @@ const Products = () => {
               {/* Product List */}
               <div className="row"></div>
               {loading ? (
-                <SkeletonList length={16} />
+                <SkeletonList length={12} />
               ) : (
                 <div className="product-list">
                   <ProductList data={productList} />

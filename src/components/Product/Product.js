@@ -1,8 +1,10 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CustomizeButton from "../../components/Buttons/CustomizeButton";
 import convertToVnd from "../../helpers/convertToVnd";
-import stringUtil from "../../utils/stringUltil";
+import { addFavoriteItem, removeFavoriteItem } from "../../redux/reducers/favoriteSlice";
+import stringUtil from "../../utils/stringUtil";
 import CardModal from "../CardModal/CardModal";
 import "./product.css";
 
@@ -11,8 +13,42 @@ const Product = ({ product }) => {
   const salePrice = product.price - (product.price * salePercent) / 100;
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+  const favoriteList = useSelector((state) => state.favorite.favoriteList);
+
   const handleProductDetail = (e) => {
     navigate(`/products/${product.id}/${stringUtil.GenUrlFriendly(product.name)}`);
+  };
+
+  const handleAddOrRemoveFavorites = (e, data) => {
+    const isActive = e.target.classList.contains("active-favorite");
+    if (isActive) {
+      e.target.classList.remove("active-favorite");
+      dispatch(
+        removeFavoriteItem({
+          productId: data.id,
+        })
+      );
+    } else {
+      e.target.classList.add("active-favorite");
+      dispatch(addFavoriteItem(data));
+    }
+  };
+
+  const checkProductIsActive = (list) => {
+    for (const item of list) {
+      if (item.id === product.id) {
+        return (
+          <div
+            id="productFavorite"
+            className="product-like active-favorite"
+            onClick={(e) => handleAddOrRemoveFavorites(e, product)}
+          >
+            <i className="product-like-icon bi bi-heart-fill"></i>
+          </div>
+        );
+      }
+    }
   };
 
   return (
@@ -54,9 +90,27 @@ const Product = ({ product }) => {
         </div>
 
         <div className="product-footer ">
-          <div className="product-like d-flex justify-content-center align-items-center">
-            <i className="product-like-icon fs-5 bi bi-heart-fill"></i>
-          </div>
+          {favoriteList.length > 0 ? (
+            checkProductIsActive(favoriteList) ? (
+              checkProductIsActive(favoriteList)
+            ) : (
+              <div
+                id="productFavorite"
+                className="product-like"
+                onClick={(e) => handleAddOrRemoveFavorites(e, product)}
+              >
+                <i className="product-like-icon bi bi-heart-fill"></i>
+              </div>
+            )
+          ) : (
+            <div
+              id="productFavorite"
+              className="product-like"
+              onClick={(e) => handleAddOrRemoveFavorites(e, product)}
+            >
+              <i className="product-like-icon bi bi-heart-fill"></i>
+            </div>
+          )}
 
           <div className="product-buy col-8 flex-grow-1">
             <CustomizeButton onClick={(e) => handleProductDetail(e)} className="product-card-btn">
