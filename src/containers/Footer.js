@@ -88,10 +88,10 @@ const Footer = () => {
                 các ưu đãi đặc biệt.
               </p>
               <div className="d-flex fs-4 col-md-2">
-                <i className="bi bi-twitter me-5" />
-                <i className="bi bi-facebook me-5" />
-                <i className="bi bi-google me-5" />
-                <i className="bi bi-instagram me-5" />
+                <i className="bi bi-twitter me-4 me-md-3" />
+                <i className="bi bi-facebook me-4 me-md-3" />
+                <i className="bi bi-google me-4 me-md-3" />
+                <i className="bi bi-instagram me-4 me-md-3" />
               </div>
             </div>
           </div>

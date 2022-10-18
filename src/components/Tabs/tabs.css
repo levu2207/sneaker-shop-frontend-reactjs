@@ -2,6 +2,7 @@
 .tabs {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: start;
 }
 
@@ -22,4 +23,11 @@
 .tabs button:disabled {
   color: var(--secondary-color);
   border-bottom: 2px solid var(--secondary-color);
+}
+
+/* responsive */
+@media (max-width: 1200px) {
+  .tabs {
+    justify-content: center;
+  }
 }

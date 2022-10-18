@@ -1,6 +1,6 @@
 import queryString from "query-string";
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { Pagination } from "react-bootstrap";
+import { Container, Nav, Navbar, Pagination } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import heroSneaker from "../../Assets/image/hero-product.jpg";
 import Hero from "../../components/Hero/Hero";
@@ -125,6 +125,7 @@ const Products = () => {
   };
 
   const handleCategory = (e) => {
+    e.preventDefault();
     setCurrentTab("");
     setPage(1);
     setPrice("");
@@ -154,11 +155,12 @@ const Products = () => {
         heroImg={heroSneaker}
       />
 
-      <div className="container">
+      <div className="container-md">
         <div className="row">
           <Title page="Sneaker" />
 
           <div className="product-content col-12 ">
+            {/* Side bar */}
             <div className="product-sidebar d-lg-block">
               <div className="sidebar-content  d-lg-block ">
                 <div className="sidebar-product-category px-3">
@@ -242,15 +244,149 @@ const Products = () => {
               </div>
             </div>
 
+            {/* side bar responsive */}
+            <div className="">
+              <div className="sidebar-content  d-lg-block ">
+                <Navbar
+                  bg="white"
+                  expand="md"
+                  className="sidebar-product-category d-md-none d-block"
+                >
+                  <Container>
+                    <Navbar.Brand>
+                      <h5 className="sidebar-heading">DANH MỤC</h5>
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                      <Nav className="me-auto">
+                        <Nav.Link>
+                          <button
+                            value={1}
+                            onClick={(e) => handleCategory(e)}
+                            className="sidebar-category-item"
+                          >
+                            Giày Nam
+                          </button>
+                        </Nav.Link>
+
+                        <Nav.Link>
+                          <button
+                            value={2}
+                            onClick={(e) => handleCategory(e)}
+                            className="sidebar-category-item"
+                          >
+                            Giày Nữ
+                          </button>
+                        </Nav.Link>
+
+                        <Nav.Link>
+                          <button
+                            value={3}
+                            onClick={(e) => handleCategory(e)}
+                            className="sidebar-category-item"
+                          >
+                            Giày Trẻ Em
+                          </button>
+                        </Nav.Link>
+
+                        <Nav.Link>
+                          <button
+                            value={4}
+                            onClick={(e) => handleCategory(e)}
+                            className="sidebar-category-item"
+                          >
+                            Giày Thể Thao
+                          </button>
+                        </Nav.Link>
+                      </Nav>
+                    </Navbar.Collapse>
+                  </Container>
+                </Navbar>
+
+                <Navbar bg="white" expand="md" className="sidebar-product-brand d-md-none d-block">
+                  <Container>
+                    <Navbar.Brand>
+                      <h5 className="sidebar-heading">THƯƠNG HIỆU</h5>
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                      <Nav className="me-auto">
+                        <Nav.Link>
+                          <button
+                            value="NIKE"
+                            onClick={(e) => handleChangeBrand(e)}
+                            className="sidebar-brand-item"
+                          >
+                            Nike
+                          </button>
+                        </Nav.Link>
+
+                        <Nav.Link>
+                          <button
+                            value="ADIDAS"
+                            onClick={(e) => handleChangeBrand(e)}
+                            className="sidebar-brand-item"
+                          >
+                            Adidas
+                          </button>
+                        </Nav.Link>
+
+                        <Nav.Link>
+                          <button
+                            value="CONVERSE"
+                            onClick={(e) => handleChangeBrand(e)}
+                            className="sidebar-brand-item"
+                          >
+                            Converse
+                          </button>
+                        </Nav.Link>
+
+                        <Nav.Link>
+                          <button
+                            value="NEW BALANCE"
+                            onClick={(e) => handleChangeBrand(e)}
+                            className="sidebar-brand-item"
+                          >
+                            New Balance
+                          </button>
+                        </Nav.Link>
+
+                        <Nav.Link>
+                          <button
+                            value="VANS"
+                            onClick={(e) => handleChangeBrand(e)}
+                            className="sidebar-brand-item"
+                          >
+                            Vans
+                          </button>
+                        </Nav.Link>
+
+                        <Nav.Link>
+                          <button
+                            value="REEBOK"
+                            onClick={(e) => handleChangeBrand(e)}
+                            className="sidebar-brand-item"
+                          >
+                            Reebok
+                          </button>
+                        </Nav.Link>
+                      </Nav>
+                    </Navbar.Collapse>
+                  </Container>
+                </Navbar>
+              </div>
+            </div>
+
+            {/* Render product list */}
             <div className="list-product-main">
               {/* Product sorter */}
               <div className="product-sorter row mx-3">
-                <div className="col-12 col-lg-9">
+                <div className="col-12 col-xl-8">
                   <Tabs onClick={(e) => handleTabClick(e)} currentTab={currentTab} />
                 </div>
 
                 {/* paging with page size */}
-                <div className="paging-limit col-12 col-lg-3">
+                <div className="paging-limit col-12 col-xl-4">
                   <label>Số sản phẩm hiển thị:</label>
                   <select value={limit} onChange={handleChangeLimit} className="">
                     <option value="8">8</option>

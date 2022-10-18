@@ -179,7 +179,7 @@ i.cart::before {
     right: 0;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .header-logo {
     position: absolute;
     left: 0;

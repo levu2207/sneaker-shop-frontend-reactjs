@@ -4,9 +4,9 @@ import placeholderImage from "../../Assets/image/placeholder_image.png";
 
 const SkeletonList = ({ length }) => {
   return (
-    <div className="row">
+    <div className="row justify-content-center">
       {Array.from(new Array(length)).map((card, index) => (
-        <div key={index} className="col-10 col-md-4 col-lg-3">
+        <div key={index} className="col-9 col-sm-6 col-lg-4 col-xl-4 col-xxl-3 px-3">
           <Card className="border-0 mt-3">
             <Card.Body>
               <Placeholder className="text-center mb-2" as={Card.Text} animation="glow">
