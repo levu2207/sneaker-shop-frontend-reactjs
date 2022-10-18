@@ -37,7 +37,7 @@ const Register = () => {
   };
 
   return (
-    <div className="wrapper-login row justify-content-center align-items-center">
+    <div className="wrapper-login row justify-content-center align-items-center m-0">
       <Helmet>
         <title>Đăng ký tài khoản</title>
         <meta
@@ -45,7 +45,7 @@ const Register = () => {
           content="Đăng ký tài khoản để nhận nhiều thông tin và ưu đãi mua hàng ở Sneaker"
         />
       </Helmet>
-      <div className="container-login col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-7 col-10">
+      <div className="container-login col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-7 col-12">
         <div className="bg-white rounded-4 my-5 px-5 py-5">
           <form className="mb-3" onSubmit={(e) => handleRegister(e)}>
             <div className="p-2 w-100 d-flex justify-content-around align-items-center">
@@ -82,7 +82,7 @@ const Register = () => {
             <div className="d-flex flex-column justify-content-center align-items-center my-4">
               <button
                 type="submit"
-                className="w-100 primary-btn rounded-btn-1 mb-3"
+                className="w-100 primary-btn rounded-btn-1 mb-3 big-100"
                 onClick={(e) => handleRegister(e)}
               >
                 Đăng ký
@@ -90,7 +90,7 @@ const Register = () => {
 
               <button
                 type="button"
-                className="w-100 secondary-btn rounded-btn-1"
+                className="w-100 secondary-btn rounded-btn-1 big-100"
                 onClick={(e) => navigate("/home")}
               >
                 Hủy

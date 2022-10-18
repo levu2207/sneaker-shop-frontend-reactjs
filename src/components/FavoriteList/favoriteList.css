@@ -24,12 +24,12 @@
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .favorite-btn {
     display: block;
     position: absolute;
     z-index: 80;
-    right: 22px;
+    right: calc(- (100vw - 95%));
     top: 80vh;
     width: 60px;
     height: 60px;
@@ -54,5 +54,20 @@
     line-height: 20px;
     top: 0;
     right: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .favorite-btn {
+    display: block;
+    position: absolute;
+    z-index: 80;
+    right: 22px;
+    top: 80vh;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--secondary-color);
   }
 }

@@ -30,7 +30,7 @@ const Banner = () => {
 
                   <CustomizeButton
                     onClick={() => navigate("/products")}
-                    className="banner-btn primary-btn rounded-btn-3 big"
+                    className="banner-btn primary-btn rounded-btn-3 big "
                   >
                     Mua ngay
                   </CustomizeButton>

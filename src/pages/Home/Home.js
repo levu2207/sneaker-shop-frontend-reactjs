@@ -161,7 +161,7 @@ const Home = () => {
                   <div className="d-flex justify-content-center mt-3">
                     <CustomizeButton
                       onClick={() => navigate("/products")}
-                      className="primary-btn big rounded-btn-3"
+                      className="primary-btn big rounded-btn-3 min-150"
                     >
                       Xem thêm
                     </CustomizeButton>
@@ -237,7 +237,7 @@ const Home = () => {
                 <div className="d-flex justify-content-center mt-3">
                   <CustomizeButton
                     onClick={() => navigate("/news")}
-                    className="primary-btn big rounded-btn-3"
+                    className="primary-btn big rounded-btn-3 min-150"
                   >
                     Xem thêm
                   </CustomizeButton>

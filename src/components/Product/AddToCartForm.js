@@ -41,7 +41,7 @@ const AddToCartForm = ({ onClick }) => {
         </button>
       </div>
 
-      <CustomizeButton onClick={handleQuantity} className="quantity-submit-btn primary-btn ">
+      <CustomizeButton onClick={handleQuantity} className="quantity-submit-btn primary-btn big">
         Chọn mua
       </CustomizeButton>
     </div>
