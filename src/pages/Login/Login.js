@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import CustomButton from "../../components/Buttons/CustomButton";
 import Input from "../../components/Input/Input";
 import { login } from "../../redux/reducers/authSlice";
 import userService from "../../services/userService";
@@ -10,12 +11,21 @@ import "./login.css";
 
 const Login = () => {
   const [user, setUser] = useState({ email: "", password: "" });
+  const [isWaiting, setIsWaiting] = useState(false)
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const emailRef =useRef()
+
+  useEffect(() => {
+    emailRef.current.focus()
+  }, [])
+  
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setIsWaiting(true)
     userService.login(user).then((res) => {
+    setIsWaiting(false)
       if (res.errorCode === 0) {
         // save user info
         dispatch(
@@ -56,7 +66,7 @@ const Login = () => {
             </div>
 
             <div className="w-100">
-              <Input name="email" type="email" id="email" onChange={(e) => handleChange(e)}>
+              <Input inputRef={emailRef} name="email" type="email" id="email" onChange={(e) => handleChange(e)}>
                 Nhập mail của bạn
               </Input>
 
@@ -75,13 +85,15 @@ const Login = () => {
             </Link>
 
             <div className="d-flex flex-column justify-content-center align-items-center my-4">
-              <button
+              <CustomButton
                 type="submit"
                 className="w-100 primary-btn rounded-btn-1 mb-3 big-100"
                 onClick={(e) => handleLogin(e)}
+                isLoading={isWaiting}
+                disabled={isWaiting}
               >
                 Đăng nhập
-              </button>
+              </CustomButton>
 
               <button
                 type="button"

@@ -2,7 +2,7 @@ import React from "react";
 import "./input.css";
 
 const Input = (props) => {
-  const { type, id, className, name, onChange } = props;
+  const { type, id, className, name, onChange, inputRef } = props;
   return (
     <div className={`form my-3 ${className}`}>
       <input
@@ -13,6 +13,7 @@ const Input = (props) => {
         className="form-input"
         autoComplete="off"
         placeholder=" "
+        ref={inputRef}
       />
       <label htmlFor={id} className="form-label">
         {props.children}

@@ -30,7 +30,7 @@ const Banner = () => {
 
                   <CustomizeButton
                     onClick={() => navigate("/products")}
-                    className="banner-btn primary-btn rounded-btn-3 big "
+                    className="primary-btn rounded-btn-3 big min-150"
                   >
                     Mua ngay
                   </CustomizeButton>
@@ -55,7 +55,7 @@ const Banner = () => {
 
                   <CustomizeButton
                     onClick={() => navigate("/products")}
-                    className="banner-btn primary-btn rounded-btn-3 big"
+                    className="primary-btn rounded-btn-3 big min-150"
                   >
                     Mua ngay
                   </CustomizeButton>
@@ -80,7 +80,7 @@ const Banner = () => {
 
                     <CustomizeButton
                       onClick={() => navigate("/products")}
-                      className="banner-btn primary-btn rounded-btn-3 big"
+                      className="primary-btn rounded-btn-3 big min-150"
                     >
                       Mua ngay
                     </CustomizeButton>

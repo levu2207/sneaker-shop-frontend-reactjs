@@ -118,7 +118,7 @@ const Account = () => {
             <CustomButton
               type="submit"
               onClick={formik.handleSubmit}
-              className="primary-btn"
+              className="primary-btn big"
               disabled={!formik.isValid || !formik.dirty || isWaiting}
               isLoading={isWaiting}
             >
@@ -129,7 +129,7 @@ const Account = () => {
 
         <div className="form-avatar">
           <img src={imageReview} alt="failed" />
-          <button type="button" onClick={() => inputFileRef.current.click()}>
+          <button className="min-150 big" type="button" onClick={() => inputFileRef.current.click()}>
             Chọn avatar
             <input
               name="avatar"

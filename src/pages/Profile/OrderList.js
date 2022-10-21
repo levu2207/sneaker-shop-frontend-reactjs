@@ -63,22 +63,22 @@ const OrderList = ({ orderList }) => {
             <OrderItems order={order} />
           </div>
 
-          <div className="d-flex align-items-center justify-content-around">
+          <div className="d-flex align-items-center justify-content-around flex-wrap">
             {order.status !== "pending" ? (
               ""
             ) : (
               <ConfirmModal
                 text="Hủy"
-                className="primary-btn ms-4"
+                className="primary-btn ms-4 small order-1"
                 type="button"
                 title="Bạn chắc chắn muốn hủy đơn hàng?"
                 onClick={(e) => handleCancelOrder(e, order)}
               />
             )}
 
-            <p>{order.isPaid === 0 ? "Thanh toán khi nhận hàng" : "Đã thanh toán"}</p>
+            <p className="order-3 mb-2">{order.isPaid === 0 ? "Thanh toán khi nhận hàng" : "Đã thanh toán"}</p>
 
-            <div className="order-total">
+            <div className="order-total order-2">
               <span>Tổng số tiền: </span>
               <p>{convertToVnd(order.totalPrice)}</p>
             </div>

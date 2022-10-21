@@ -1,23 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Input from "../../components/Input/Input";
-import userService from "../../services/userService";
 import { toast } from "react-toastify";
+import CustomButton from "../../components/Buttons/CustomButton";
+import Input from "../../components/Input/Input";
 import { registerFailed, registerStart, registerSuccess } from "../../redux/reducers/authSlice";
-import { Helmet } from "react-helmet";
+import userService from "../../services/userService";
 
 const Register = () => {
   const [user, setUser] = useState({});
+  const [isWaiting, setIsWaiting] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const nameRef = useRef();
+
+  useEffect(() => {
+    nameRef.current.focus()
+  },[])
 
   const handleRegister = (e) => {
     e.preventDefault();
+    setIsWaiting(true)
 
     dispatch(registerStart());
 
     userService.register(user).then((res) => {
+    setIsWaiting(false)
+
       if (res.errorCode === 0) {
         console.log(res.data);
         dispatch(registerSuccess());
@@ -53,7 +63,13 @@ const Register = () => {
             </div>
 
             <div className="w-100">
-              <Input onChange={(e) => handleChange(e)} name="fullName" type="text" id="fullName">
+              <Input
+                inputRef={nameRef}
+                onChange={(e) => handleChange(e)}
+                name="fullName"
+                type="text"
+                id="fullName"
+              >
                 Nhập tên đầy đủ
               </Input>
 
@@ -80,13 +96,15 @@ const Register = () => {
             </div>
 
             <div className="d-flex flex-column justify-content-center align-items-center my-4">
-              <button
+              <CustomButton
                 type="submit"
                 className="w-100 primary-btn rounded-btn-1 mb-3 big-100"
                 onClick={(e) => handleRegister(e)}
+                isLoading={isWaiting}
+                disabled={isWaiting}
               >
                 Đăng ký
-              </button>
+              </CustomButton>
 
               <button
                 type="button"
