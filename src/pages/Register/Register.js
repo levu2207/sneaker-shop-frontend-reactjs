@@ -16,17 +16,17 @@ const Register = () => {
   const nameRef = useRef();
 
   useEffect(() => {
-    nameRef.current.focus()
-  },[])
+    nameRef.current.focus();
+  }, []);
 
   const handleRegister = (e) => {
     e.preventDefault();
-    setIsWaiting(true)
+    setIsWaiting(true);
 
     dispatch(registerStart());
 
     userService.register(user).then((res) => {
-    setIsWaiting(false)
+      setIsWaiting(false);
 
       if (res.errorCode === 0) {
         console.log(res.data);

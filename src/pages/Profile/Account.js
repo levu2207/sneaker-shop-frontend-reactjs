@@ -17,7 +17,7 @@ const Account = () => {
 
   const initialValues = {
     fullName: userInfo.fullName,
-    phoneNumber: userInfo.phoneNumber,
+    phoneNumber: userInfo.phoneNumber || "",
     email: userInfo.email,
     address: userInfo.address,
     avatar: userInfo.avatar,
@@ -129,7 +129,11 @@ const Account = () => {
 
         <div className="form-avatar">
           <img src={imageReview} alt="failed" />
-          <button className="min-150 big" type="button" onClick={() => inputFileRef.current.click()}>
+          <button
+            className="min-150 big"
+            type="button"
+            onClick={() => inputFileRef.current.click()}
+          >
             Chọn avatar
             <input
               name="avatar"
