@@ -28,6 +28,7 @@ const ProductDetail = () => {
   let sizeSelect;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     productService.get(id).then((res) => {
       setProduct(res.data);
       setIsLoading(false);
@@ -37,7 +38,6 @@ const ProductDetail = () => {
   const handleAddToCart = (value) => {
     if (sizeSelect) {
       const quantity = value;
-      console.log(quantity);
 
       const action = addToCart({
         id: product.id,

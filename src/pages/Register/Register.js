@@ -86,7 +86,7 @@ const Register = () => {
                 Nhập mật khẩu
               </Input>
 
-              <Input onChange={(e) => handleChange(e)} name="phone" type="phone" id="phone">
+              <Input onChange={(e) => handleChange(e)} name="phoneNumber" type="phone" id="phoneNumber">
                 Nhập số điện thoại
               </Input>
 
