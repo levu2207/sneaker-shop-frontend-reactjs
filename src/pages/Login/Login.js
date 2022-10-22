@@ -49,7 +49,7 @@ const Login = () => {
   };
 
   return (
-    <div className="wrapper-login row justify-content-center align-items-center">
+    <div className="wrapper-login row justify-content-center align-items-center m-0">
       <Helmet>
         <title>Đăng nhập tài khoản</title>
         <meta

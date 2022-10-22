@@ -8,6 +8,7 @@ const ConfirmModal = (props) => {
   const [show, setShow] = useState(false);
 
   const handleConfirm = (e) => {
+    e.stopPropagation();
     onClick(e.target.value);
     setShow(false);
   };
@@ -37,7 +38,13 @@ const ConfirmModal = (props) => {
           <p>{title}</p>
 
           <div>
-            <button className="modal-cancel-btn" onClick={() => setShow(false)}>
+            <button
+              className="modal-cancel-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShow(false);
+              }}
+            >
               Hủy
             </button>
             <button className="modal-confirm-btn" value="confirm" onClick={(e) => handleConfirm(e)}>
