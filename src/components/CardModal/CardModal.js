@@ -68,7 +68,7 @@ const CardModal = ({ product }) => {
               </Modal.Header>
               <h3 className="product-name mb-4">{product.name}</h3>
 
-              <p className="product-modal-desc py-3 border-top ">{product.description}</p>
+              <p dangerouslySetInnerHTML={{ __html: product.description }} className="product-modal-desc py-3 border-top "></p>
             </div>
 
             <div className="size-container py-3 border-top border-bottom">
